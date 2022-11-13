@@ -1,2 +1,2 @@
 # Python-R
-Python programs repository
+Python programming repository
