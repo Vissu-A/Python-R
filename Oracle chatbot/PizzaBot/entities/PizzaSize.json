@@ -1,0 +1,24 @@
+{
+  "name" : "PizzaSize",
+  "type" : "ENUMVALUES",
+  "enumValues" : [ {
+    "canonicalName" : "Large",
+    "synonyms" : [ "lrg", "lrge", "big" ]
+  }, {
+    "canonicalName" : "Medium",
+    "synonyms" : [ "med" ]
+  }, {
+    "canonicalName" : "Small",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Personal",
+    "synonyms" : null
+  } ],
+  "namedEntityRuleParams" : [ ],
+  "multiValue" : false,
+  "fuzzyMatch" : false,
+  "promptForDisambiguation" : true,
+  "botPrompts" : [ ],
+  "validationRules" : [ ],
+  "compositeBagItems" : [ ]
+}

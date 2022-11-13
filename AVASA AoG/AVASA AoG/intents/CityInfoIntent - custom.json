@@ -1,0 +1,37 @@
+{
+  "id": "11681659-e0ff-420d-85e1-fc676958d4ca",
+  "parentId": "49d4fafa-8da9-4354-9906-5c2a62527a5f",
+  "rootParentId": "49d4fafa-8da9-4354-9906-5c2a62527a5f",
+  "name": "CityInfoIntent - custom",
+  "auto": true,
+  "contexts": [
+    "guest-info",
+    "CityInfoIntent-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "CityInfoIntent.CityInfoIntent-custom",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "actions_intent_OPTION"
+    }
+  ]
+}

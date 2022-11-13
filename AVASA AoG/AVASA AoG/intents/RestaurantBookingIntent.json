@@ -1,0 +1,77 @@
+{
+  "id": "f295fc5c-d3e1-46b0-97cd-da22c0bc1a35",
+  "name": "RestaurantBookingIntent",
+  "auto": true,
+  "contexts": [
+    "guest-info"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [
+        {
+          "name": "guest-info",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "RestaurantBooking-followup",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "id": "57e5083c-b112-40d7-b8d4-222140f5aaf6",
+          "required": true,
+          "dataType": "@sys.date-time",
+          "name": "dateBooking",
+          "value": "$dateBooking",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "for when?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        },
+        {
+          "id": "5e814851-3e83-454e-ad5b-76e1e7fe7896",
+          "required": true,
+          "dataType": "@sys.number-integer",
+          "name": "headCount",
+          "value": "$headCount",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "for how many persons?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

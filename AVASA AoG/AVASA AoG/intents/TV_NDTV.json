@@ -1,0 +1,35 @@
+{
+  "id": "77bbe885-a1ed-4859-a328-6d0d27861a94",
+  "name": "TV_NDTV",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "simple_response",
+          "platform": "google",
+          "lang": "en",
+          "textToSpeech": "Switching to NDTV",
+          "ssml": "",
+          "displayText": "Switching to NDTV"
+        },
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": "Switching to NDTV"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

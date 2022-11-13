@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1fe7e3c5-7e4d-4c64-b4f3-c4d1f000dba4",
+    "data": [
+      {
+        "text": "change channel to NDTV",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "87fcce32-6155-4aaf-8377-e69d4cc3a35e",
+    "data": [
+      {
+        "text": "change to NDTV",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "47bfdb7b-eba5-4672-af10-d083560426d5",
+    "data": [
+      {
+        "text": "switch to NDTV",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "2a58be9a-90ff-43f8-a03b-98c76cb95b6b",
+    "data": [
+      {
+        "text": "NDTV",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

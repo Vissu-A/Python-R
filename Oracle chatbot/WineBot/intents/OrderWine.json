@@ -1,0 +1,45 @@
+{
+  "name" : "OrderWine",
+  "type" : "NLPIntent",
+  "intentParameters" : [ ],
+  "exampleData" : [ {
+    "sentence" : "What's on the wine menu today? ",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Let's order red wine",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Would love a Pinot please!",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "What types of wine can I order?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "I'd like to order an alcoholic beverage made from fermented grapes please",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Order wine!",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "How much does a glass of wine cost?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Do you have sulfite free wine?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Would you happen to have sparking wine?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Can I order wine?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Do you carry rose wines?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "I want to drink wine for lunch",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "I feel like drinking some wine",
+    "exampleEntities" : [ ]
+  } ]
+}

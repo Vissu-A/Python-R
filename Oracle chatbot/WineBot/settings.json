@@ -1,0 +1,61 @@
+{
+  "settings" : {
+    "Multistage_Pipeline" : true,
+    "Verbose_Output" : false,
+    "Result_Size" : 10,
+    "Pipeline_Output_Size" : 100,
+    "botConfig" : [ {
+      "displayName" : "Help State",
+      "name" : "system.helpState",
+      "description" : "Help state for digital assistant",
+      "type" : "string",
+      "value" : "greeting1"
+    }, {
+      "displayName" : "Welcome State",
+      "name" : "system.welcomeState",
+      "description" : "Welcome state for digital assistant",
+      "type" : "string",
+      "value" : "greeting1"
+    }, {
+      "displayName" : "Expired Session Error Prompt",
+      "name" : "system.errorExpiredSessionPrompt",
+      "description" : "The message when the session has expired",
+      "type" : "string",
+      "value" : "Your session has expired.  Please start again."
+    }, {
+      "displayName" : "Unexpected Error Prompt",
+      "name" : "system.errorUnexpectedErrorPrompt",
+      "description" : "The message when there is an unexpected error",
+      "type" : "string",
+      "value" : "Oops I'm encountering a spot of trouble. Please try again later..."
+    }, {
+      "displayName" : "Confidence threshold",
+      "name" : "system.intentConfidenceThreshold",
+      "description" : "The minimum confidence score required to match a skill's intent with user input. If there is no match, the transition action is set to 'unresolvedIntent'.(Minimum value 0, maximum value 1)",
+      "type" : "float",
+      "value" : 0.4
+    }, {
+      "displayName" : "Max States Exceeded Error Prompt",
+      "name" : "system.errorMaxStatesExceededPrompt",
+      "description" : "The message when the Bot appears to be an infinite loop",
+      "type" : "string",
+      "value" : "Your session appears to be in an infinite loop."
+    }, {
+      "displayName" : "Confidence Win Margin",
+      "name" : "system.intentConfidenceWinMargin",
+      "description" : "Only the top intent that exceeds the confidence threshold is picked if its confidence score exceeds that of other intents by this value or more. If other intents that exceed the confidence threshold have scores that are within that of the top intent by less than the win margin, these intents are also presented to the user. (Minimum value 0, maximum value 1)",
+      "type" : "float",
+      "value" : 0
+    }, {
+      "displayName" : "Start State",
+      "name" : "system.startState",
+      "description" : "Start state for digital assistant",
+      "type" : "string",
+      "value" : ""
+    } ]
+  },
+  "conversationHistoryEnabled" : false,
+  "insightsEnabled" : false,
+  "intentResultHistoryEnabled" : false,
+  "qnAResultHistoryEnabled" : false
+}

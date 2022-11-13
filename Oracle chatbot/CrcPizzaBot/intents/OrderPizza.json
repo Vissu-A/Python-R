@@ -1,0 +1,19 @@
+{
+  "name" : "OrderPizza",
+  "type" : "NLPIntent",
+  "intentParameters" : [ {
+    "name" : "PizzaSize",
+    "required" : true,
+    "entity" : "PizzaSize"
+  } ],
+  "exampleData" : [ {
+    "sentence" : "I want pizza",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "pizza please",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "can I get a pizza",
+    "exampleEntities" : [ ]
+  } ]
+}

@@ -1,0 +1,27 @@
+{
+  "name" : "PizzaSize",
+  "type" : "ENUMVALUES",
+  "enumValues" : [ {
+    "canonicalName" : "Large",
+    "synonyms" : [ "lrg", "lrge", "big" ]
+  }, {
+    "canonicalName" : "Medium",
+    "synonyms" : [ "med" ]
+  }, {
+    "canonicalName" : "Small",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "X-Large",
+    "synonyms" : [ "XL" ]
+  } ],
+  "namedEntityRuleParams" : [ ],
+  "multiValue" : false,
+  "fuzzyMatch" : false,
+  "promptForDisambiguation" : true,
+  "botPrompts" : [ {
+    "text" : "Please enter PizzaSize",
+    "sequenceNr" : null
+  } ],
+  "validationRules" : [ ],
+  "compositeBagItems" : [ ]
+}

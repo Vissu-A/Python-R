@@ -1,0 +1,6 @@
+{
+  "invocationName" : "PizzaBotWithMemory",
+  "shortDescription" : "Generic bot description",
+  "fullDescription" : null,
+  "sampleInvocations" : [ "An example utterance" ]
+}

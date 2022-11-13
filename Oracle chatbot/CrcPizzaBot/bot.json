@@ -1,0 +1,9 @@
+{
+  "type" : "USER",
+  "name" : "CrcPizzaBot",
+  "displayName" : "CrcPizzaBot",
+  "description" : "Piza bot showcasing the common response component",
+  "version" : "1.0",
+  "intentTrainer" : "Sakura",
+  "trainingModels" : [ ]
+}

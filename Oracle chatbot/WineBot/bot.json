@@ -1,0 +1,9 @@
+{
+  "type" : "USER",
+  "name" : "WineBot",
+  "displayName" : "Wine Skill",
+  "description" : "A wine ordering skill.",
+  "version" : "1.0-DA",
+  "intentTrainer" : "Sakura",
+  "trainingModels" : [ ]
+}

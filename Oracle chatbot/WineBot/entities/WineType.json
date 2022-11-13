@@ -1,0 +1,36 @@
+{
+  "name" : "WineType",
+  "type" : "ENUMVALUES",
+  "enumValues" : [ {
+    "canonicalName" : "Cabernet Sauvignon",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Chardonnay",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Pinot Gris",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Pinot Noir",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Riesling",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Sauvignon Blanc",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Syrah",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Zinfandel",
+    "synonyms" : null
+  } ],
+  "namedEntityRuleParams" : [ ],
+  "multiValue" : false,
+  "fuzzyMatch" : false,
+  "promptForDisambiguation" : true,
+  "botPrompts" : [ ],
+  "validationRules" : [ ],
+  "compositeBagItems" : [ ]
+}

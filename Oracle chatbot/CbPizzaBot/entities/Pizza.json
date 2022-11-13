@@ -1,0 +1,326 @@
+{
+  "name" : "Pizza",
+  "type" : "COMPOSITEBAG",
+  "enumValues" : [ {
+    "canonicalName" : "CheeseType",
+    "synonyms" : null
+  } ],
+  "namedEntityRuleParams" : [ ],
+  "multiValue" : false,
+  "fuzzyMatch" : false,
+  "promptForDisambiguation" : true,
+  "botPrompts" : [ {
+    "text" : "Please enter Entity2",
+    "sequenceNr" : null
+  } ],
+  "validationRules" : [ ],
+  "compositeBagItems" : [ {
+    "sequenceNr" : 1,
+    "name" : "Type",
+    "type" : "ENTITY",
+    "entityName" : "PizzaType",
+    "entityUsage" : {
+      "name" : "PizzaType",
+      "description" : null,
+      "patternExpression" : null,
+      "type" : "ENUMVALUES",
+      "enumValues" : [ {
+        "canonicalName" : "CHEESE BASIC",
+        "synonyms" : null
+      }, {
+        "canonicalName" : "PEPPERONI",
+        "synonyms" : null
+      }, {
+        "canonicalName" : "MEAT LOVER",
+        "synonyms" : null
+      }, {
+        "canonicalName" : "SUPREME",
+        "synonyms" : null
+      }, {
+        "canonicalName" : "PREMIUM GARDEN VEGGIE",
+        "synonyms" : null
+      }, {
+        "canonicalName" : "ULTIMATE CHEESE LOVER",
+        "synonyms" : null
+      }, {
+        "canonicalName" : "HAWAIIAN CHICKEN",
+        "synonyms" : null
+      }, {
+        "canonicalName" : "BACON SPINACH ALFREDO",
+        "synonyms" : null
+      } ],
+      "prompts" : null,
+      "parentEntity" : null,
+      "nextUpdateAt" : null,
+      "multiValue" : false,
+      "fuzzyMatch" : false,
+      "promptForDisambiguation" : true,
+      "disambiguationPrompt" : null,
+      "enumRangeSize" : null,
+      "errorMessage" : null,
+      "namedEntityRuleParams" : [ ],
+      "botPrompts" : [ {
+        "text" : "Please enter PizzaType"
+      } ],
+      "validationRules" : [ ]
+    },
+    "enumRangeSize" : "8",
+    "errorMessage" : "'${system.entityToResolve.value.userInput!'This'}' is not a valid pizza type.",
+    "multiValue" : false,
+    "fuzzyMatch" : false,
+    "outOfOrderExtraction" : true,
+    "promptForDisambiguation" : true,
+    "disambiguationPrompt" : "You can only order one pizza at a time. Which pizza do you want to order?",
+    "prompts" : [ {
+      "text" : "What kind of pizza would you like to order?",
+      "sequenceNr" : null
+    } ]
+  }, {
+    "sequenceNr" : 2,
+    "name" : "Size",
+    "type" : "ENTITY",
+    "entityName" : "PizzaSize",
+    "entityUsage" : {
+      "name" : "PizzaSize",
+      "description" : null,
+      "patternExpression" : null,
+      "type" : "ENUMVALUES",
+      "enumValues" : [ {
+        "canonicalName" : "Large",
+        "synonyms" : [ "lrg", "lrge", "big" ]
+      }, {
+        "canonicalName" : "Medium",
+        "synonyms" : [ "med" ]
+      }, {
+        "canonicalName" : "Small",
+        "synonyms" : null
+      }, {
+        "canonicalName" : "X-Large",
+        "synonyms" : [ "XL" ]
+      } ],
+      "prompts" : null,
+      "parentEntity" : null,
+      "nextUpdateAt" : null,
+      "multiValue" : false,
+      "fuzzyMatch" : false,
+      "promptForDisambiguation" : true,
+      "disambiguationPrompt" : null,
+      "enumRangeSize" : null,
+      "errorMessage" : null,
+      "namedEntityRuleParams" : [ ],
+      "botPrompts" : [ {
+        "text" : "Please enter PizzaSize"
+      } ],
+      "validationRules" : [ ]
+    },
+    "errorMessage" : "'${system.entityToResolve.value.userInput!'This'}' is not a valid pizza size.",
+    "multiValue" : false,
+    "fuzzyMatch" : false,
+    "outOfOrderExtraction" : true,
+    "promptForDisambiguation" : true,
+    "prompts" : [ {
+      "text" : "What size do you want?",
+      "sequenceNr" : 1
+    } ]
+  }, {
+    "sequenceNr" : 3,
+    "name" : "Toppings",
+    "type" : "ENTITY",
+    "entityName" : "PizzaToppings",
+    "entityUsage" : {
+      "name" : "PizzaToppings",
+      "description" : null,
+      "patternExpression" : null,
+      "type" : "ENUMVALUES",
+      "enumValues" : [ {
+        "canonicalName" : "Mushrooms",
+        "synonyms" : null
+      }, {
+        "canonicalName" : "BBQ Sauce",
+        "synonyms" : null
+      }, {
+        "canonicalName" : "Onions",
+        "synonyms" : null
+      }, {
+        "canonicalName" : "Tuna",
+        "synonyms" : null
+      }, {
+        "canonicalName" : "Tomatoes",
+        "synonyms" : null
+      }, {
+        "canonicalName" : "Green Pepppers",
+        "synonyms" : null
+      }, {
+        "canonicalName" : "Extra Cheese",
+        "synonyms" : null
+      }, {
+        "canonicalName" : "Black Olives",
+        "synonyms" : null
+      } ],
+      "prompts" : null,
+      "parentEntity" : null,
+      "nextUpdateAt" : null,
+      "multiValue" : false,
+      "fuzzyMatch" : false,
+      "promptForDisambiguation" : true,
+      "disambiguationPrompt" : null,
+      "enumRangeSize" : null,
+      "errorMessage" : null,
+      "namedEntityRuleParams" : [ ],
+      "botPrompts" : [ {
+        "text" : "Please enter Entity1"
+      } ],
+      "validationRules" : [ ]
+    },
+    "enumRangeSize" : "5",
+    "errorMessage" : "'${system.entityToResolve.value.userInput!'This'}' is not a valid toppings choice.",
+    "multiValue" : true,
+    "fuzzyMatch" : false,
+    "outOfOrderExtraction" : true,
+    "promptForDisambiguation" : false,
+    "promptForValue" : "${!pizza.value?has_content || !pizza.value.NoToppings?has_content}",
+    "prompts" : [ {
+      "text" : "What toppings do you want?",
+      "sequenceNr" : 1
+    } ]
+  }, {
+    "sequenceNr" : 4,
+    "name" : "CheeseType",
+    "type" : "ENTITY",
+    "entityName" : "CheeseType",
+    "entityUsage" : {
+      "name" : "CheeseType",
+      "description" : null,
+      "patternExpression" : null,
+      "type" : "ENUMVALUES",
+      "enumValues" : [ {
+        "canonicalName" : "Mozzarella",
+        "synonyms" : [ "Mozarela", "Mozzarela" ]
+      }, {
+        "canonicalName" : "Provolone",
+        "synonyms" : null
+      }, {
+        "canonicalName" : "Gouda",
+        "synonyms" : null
+      }, {
+        "canonicalName" : "Cheddar",
+        "synonyms" : null
+      } ],
+      "prompts" : null,
+      "parentEntity" : null,
+      "nextUpdateAt" : null,
+      "multiValue" : false,
+      "fuzzyMatch" : false,
+      "promptForDisambiguation" : true,
+      "disambiguationPrompt" : null,
+      "enumRangeSize" : null,
+      "errorMessage" : null,
+      "namedEntityRuleParams" : [ ],
+      "botPrompts" : [ {
+        "text" : "Please enter CheeseType"
+      } ],
+      "validationRules" : [ ]
+    },
+    "multiValue" : false,
+    "fuzzyMatch" : false,
+    "outOfOrderExtraction" : true,
+    "promptForDisambiguation" : true,
+    "promptForValue" : "${pizza.value?has_content && pizza.value.Toppings?has_content && pizza.value.Toppings?join(',')?contains('Extra Cheese')}",
+    "prompts" : [ {
+      "text" : "What kind of extra cheese do you want?\n",
+      "sequenceNr" : 1
+    } ]
+  }, {
+    "sequenceNr" : 5,
+    "name" : "NoToppings",
+    "type" : "ENTITY",
+    "entityName" : "NoToppings",
+    "entityUsage" : {
+      "name" : "NoToppings",
+      "description" : null,
+      "patternExpression" : null,
+      "type" : "ENUMVALUES",
+      "enumValues" : [ {
+        "canonicalName" : "No Toppings",
+        "synonyms" : [ "dont want", "don't want", "none", "dont need", "don't need" ]
+      } ],
+      "prompts" : null,
+      "parentEntity" : null,
+      "nextUpdateAt" : null,
+      "multiValue" : false,
+      "fuzzyMatch" : false,
+      "promptForDisambiguation" : true,
+      "disambiguationPrompt" : null,
+      "enumRangeSize" : null,
+      "errorMessage" : null,
+      "namedEntityRuleParams" : [ ],
+      "botPrompts" : [ {
+        "text" : "Please enter Entity1"
+      } ],
+      "validationRules" : [ ]
+    },
+    "multiValue" : false,
+    "fuzzyMatch" : false,
+    "outOfOrderExtraction" : false,
+    "extractWith" : "Toppings",
+    "promptForDisambiguation" : true,
+    "promptForValue" : "false"
+  }, {
+    "sequenceNr" : 6,
+    "name" : "Location",
+    "type" : "LOCATION",
+    "multiValue" : false,
+    "fuzzyMatch" : false,
+    "outOfOrderExtraction" : true,
+    "promptForDisambiguation" : true,
+    "promptForValue" : "${!pizza.value.LocationText?has_content}",
+    "prompts" : [ {
+      "text" : "Where do you want the pizza to be delivered?\n",
+      "sequenceNr" : 1
+    } ]
+  }, {
+    "sequenceNr" : 7,
+    "name" : "LocationText",
+    "type" : "STRING",
+    "entityName" : "CheeseType",
+    "entityUsage" : {
+      "name" : "CheeseType",
+      "description" : null,
+      "patternExpression" : null,
+      "type" : "ENUMVALUES",
+      "enumValues" : [ {
+        "canonicalName" : "Mozzarella",
+        "synonyms" : [ "Mozarela", "Mozzarela" ]
+      }, {
+        "canonicalName" : "Provolone",
+        "synonyms" : null
+      }, {
+        "canonicalName" : "Gouda",
+        "synonyms" : null
+      }, {
+        "canonicalName" : "Cheddar",
+        "synonyms" : null
+      } ],
+      "prompts" : null,
+      "parentEntity" : null,
+      "nextUpdateAt" : null,
+      "multiValue" : false,
+      "fuzzyMatch" : false,
+      "promptForDisambiguation" : true,
+      "disambiguationPrompt" : null,
+      "enumRangeSize" : null,
+      "errorMessage" : null,
+      "namedEntityRuleParams" : [ ],
+      "botPrompts" : [ {
+        "text" : "Please enter CheeseType"
+      } ],
+      "validationRules" : [ ]
+    },
+    "multiValue" : false,
+    "fuzzyMatch" : false,
+    "outOfOrderExtraction" : false,
+    "extractWith" : "Location",
+    "promptForDisambiguation" : true,
+    "promptForValue" : "false"
+  } ]
+}

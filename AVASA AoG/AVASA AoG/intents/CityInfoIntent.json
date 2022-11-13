@@ -1,0 +1,91 @@
+{
+  "id": "49d4fafa-8da9-4354-9906-5c2a62527a5f",
+  "name": "CityInfoIntent",
+  "auto": true,
+  "contexts": [
+    "guest-info"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [
+        {
+          "name": "guest-info",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "CityInfoIntent-followup",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "simple_response",
+          "platform": "google",
+          "lang": "en",
+          "textToSpeech": "These are some prominent tourist attractions of Hyderabad.",
+          "ssml": "",
+          "displayText": ""
+        },
+        {
+          "type": "browse_carousel_card",
+          "platform": "google",
+          "lang": "en",
+          "items": [
+            {
+              "footer": "",
+              "openUrlAction": {
+                "url": "https://en.wikipedia.org/wiki/Charminar",
+                "urlTypeHint": "URL_TYPE_HINT_UNSPECIFIED"
+              },
+              "title": "Title1",
+              "description": ""
+            },
+            {
+              "footer": "",
+              "openUrlAction": {
+                "url": "https://en.wikipedia.org/wiki/Golkonda",
+                "urlTypeHint": "URL_TYPE_HINT_UNSPECIFIED"
+              },
+              "title": "Title2",
+              "description": ""
+            },
+            {
+              "footer": "",
+              "openUrlAction": {
+                "url": "https://en.wikipedia.org/wiki/Hussain_Sagar",
+                "urlTypeHint": "URL_TYPE_HINT_UNSPECIFIED"
+              },
+              "title": "Title3",
+              "description": ""
+            },
+            {
+              "footer": "",
+              "openUrlAction": {
+                "url": "https://en.wikipedia.org/wiki/Chowmahalla_Palace",
+                "urlTypeHint": "URL_TYPE_HINT_UNSPECIFIED"
+              },
+              "title": "Title4",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

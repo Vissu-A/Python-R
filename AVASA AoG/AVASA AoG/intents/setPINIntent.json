@@ -1,0 +1,55 @@
+{
+  "id": "299e55ff-fc07-4499-a9a5-051c1f92229c",
+  "name": "setPINIntent",
+  "auto": true,
+  "contexts": [
+    "guest-info"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "setPIN",
+      "affectedContexts": [
+        {
+          "name": "guest-info",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [
+        {
+          "id": "8271d311-d9b0-45b9-8dba-a85eab2b9ab0",
+          "required": false,
+          "dataType": "@sys.number",
+          "name": "PIN",
+          "value": "$PIN",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Please provide me"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

@@ -1,0 +1,40 @@
+{
+  "id": "19e5b463-7329-4188-a96a-a315d333cca2",
+  "name": "RoomInfoIntent",
+  "auto": true,
+  "contexts": [
+    "guest-info"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [
+        {
+          "name": "guest-info",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "RoomInfoIntent-followup",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

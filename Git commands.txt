@@ -1,0 +1,70 @@
+------------------------------------
+
+Git 
+
+--------------------------------------
+
+1. Install git
+
+    sudo apt-get update
+    sudo apt-get install git
+
+2. Config your git username in local machine
+
+    git config --global user.name "Your Name" 
+    git config --global user.email "youremail@domain.com"
+
+3. Git commands: 
+    git clone "repository url"
+
+    -> Go to your git repo and use git commands.
+        -> git status
+        -> git stash -- 
+        -> git pull
+        -> git checkout -b <new_branch>
+        -> git push -u origin <new_branch>
+        -> git stash pop stash@{1} --- to get the saved chages previously for second stash command
+
+
+
+---------------------------------------
+1. git pull --> To pull the repo with latest changes
+
+2. git branch mylocalbranch --> Create a local branch , copy of master repo into new local branch
+
+3. git checkout mylocalbranch --> Switch to local branch 
+
+4. git status --->To check the changes we made after creating new branch ....
+
+5. git add -A --> To save all the changes, git add filename --> To save single file..
+
+6. git commit -m "Message Anything"  --> To commit the changes into local branch.
+
+7. Before pushing the changes into master switch to master and pull the new repo and then push to master
+
+   git checkout master
+
+   git pull
+
+   git checkout mylocalbranch
+
+8. Push the changes to master
+
+    git push or git push --set-upstream origin mylocalbranch
+
+9. To merge the branch to master , switch to mylocalbranch then
+
+    git merge master    
+
+--------------------
+Git stash 
+
+-----------------
+
+1. git diff 
+2. git status
+3. git stash save "Message"
+4. git stash list
+5. git stash apply stash@{0}
+6. git stash  pop --> to save apply the changes which are there at top of the stash list ..i.e {0}
+7. git stash drop stash@{0}

@@ -1,0 +1,190 @@
+metadata:
+  platformVersion: "1.0"
+main: true
+name: "CbPizzaBot"
+context:
+  variables:
+    iResult: "nlpresult"
+    pizza: "Pizza"
+    pizzaCardInfo: "map"
+states:
+  # Loading additional info for each pizza type so we can use cards with an image and decription to present the various pizza types
+  # The names of the pizza types must match the value list entries in the PizzaType entity.
+  LoadPizzaCardInfo:
+    component: "System.SetVariable"
+    properties:
+      variable: "pizzaCardInfo"
+      value:
+        CHEESE BASIC:
+          description: "Classic marinara sauce topped with whole milk mozzarella cheese."
+          image: "https://cdn.pixabay.com/photo/2017/09/03/10/35/pizza-2709845__340.jpg"
+        PEPPERONI:
+          description: "Classic marinara sauce with authentic old-world style pepperoni."
+          image: "https://cdn.pixabay.com/photo/2017/08/02/12/38/pepperoni-2571392__340.jpg"
+        MEAT LOVER:
+          description: "Classic marinara sauce, authentic old-world pepperoni, all-natural\
+            \ Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork\
+            \ and beef."
+          image: "https://cdn.pixabay.com/photo/2017/07/22/22/51/big-2530144__340.jpg"
+        SUPREME:
+          description: "Classic marinara sauce, authentic old-world pepperoni, seasoned\
+            \ pork, beef, fresh mushrooms, fresh green bell peppers and fresh red onions."
+          image: "https://cdn.pixabay.com/photo/2017/07/22/22/57/pizza-2530169__340.jpg"
+        PREMIUM GARDEN VEGGIE:
+          description: "Premium crushed tomato sauce topped with green peppers, red\
+            \ onions, mushrooms, Roma tomatoes and roasted spinach with our Hut Favorite\
+            \ on the crust."
+          image: "https://cdn.pixabay.com/photo/2017/07/22/22/57/pizza-2530169__340.jpg"
+        ULTIMATE CHEESE LOVER:
+          description: "Garlic Parmesan sauce topped with 50% more mozzarella cheese\
+            \ with a toasted Parmesan crust."
+          image: "https://cdn.pixabay.com/photo/2017/08/02/12/38/pepperoni-2571392__340.jpg"
+        HAWAIIAN CHICKEN:
+          description: "Grilled chicken, ham, pineapple and green bell peppers."
+          image: "https://cdn.pixabay.com/photo/2017/07/22/22/51/big-2530144__340.jpg"
+        BACON SPINACH ALFREDO:
+          description: "Garlic Parmesan sauce topped with bacon, mushrooms and roasted\
+            \ spinach with a salted pretzel crust."
+          image: "https://cdn.pixabay.com/photo/2017/09/03/10/35/pizza-2709845__340.jpg"
+
+  intent:
+    component: "System.Intent"
+    properties:
+      variable: "iResult"
+    transitions:
+      actions:
+        OrderPizza: "orderPizza"
+        CancelPizza: "cancelorder"
+        unresolvedIntent: "unresolved"
+
+  # Both System.ResolveEntities and System.CommonResponse (CRC) components can be used to resolve a composite bag entity.
+  # The CRC allows you to customize the bot message for each entity in the bag. In the example below, Cards are rendered to to choose the pizza type.
+  # In addition, a Cancel button is displayed after the user entered an invalid value, and a Send Location button is shown when the user is prompted for his location
+  orderPizza:
+    component: "System.CommonResponse"
+    properties:
+      processUserMessage: true
+      variable: "pizza"
+      nlpResultVariable: "iResult"
+      cancelPolicy: "immediate"
+      transitionAfterMatch: "false"
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "<#list system.entityToResolve.value.updatedEntities>I have updated <#items as ent>${ent.name}<#sep> and </#items>. </#list><#list system.entityToResolve.value.outOfOrderMatches>I got <#items as ent>${ent.name}<#sep> and </#items>. </#list>"
+        - type: "text"
+          text: "${system.entityToResolve.value.prompt}"
+          actions:
+          - label: "${enumValue}"
+            type: "postback"
+            iteratorVariable: "system.entityToResolve.value.enumValues"
+            payload:
+              variables:
+                pizza: "${enumValue}"
+            visible:
+              entitiesToResolve:
+                exclude: "Type"
+        - type: "cards"
+          cardLayout: "horizontal"
+          visible:
+            entitiesToResolve:
+              include: "Type"
+          cards:
+          - title: "${enumValue}"
+            description: "<#if pizzaCardInfo.value[enumValue]?has_content>${pizzaCardInfo.value[enumValue].description}</#if>"
+            imageUrl: "<#if pizzaCardInfo.value[enumValue]?has_content>${pizzaCardInfo.value[enumValue].image}</#if>"
+            iteratorVariable: "system.entityToResolve.value.enumValues"
+            actions:
+            - label: "Order Now"
+              type: "postback"
+              payload:
+                variables:
+                  pizza: "${enumValue}"
+        - type: "text"
+          text: "Enter the numbers of your choice separated with a space."
+          visible:
+            expression: "${system.entityToResolve.value.name=='Toppings'}"
+        globalActions:
+        - label: "Show More"
+          type: "postback"
+          visible:
+            expression: "${system.entityToResolve.value.needShowMoreButton}"
+          payload:
+            action: "system.showMore"
+            variables:
+              ${system.entityToResolve.value.rangeStartVar}: ${system.entityToResolve.value.nextRangeStart}
+        - label: "Cancel"
+          type: "postback"
+          visible:
+            onInvalidUserInput: true
+          payload:
+            action: "cancel"
+        - label: "Send Location"
+          type: "location"
+          visible:
+            entitiesToResolve:
+              include: "Location"
+    transitions:
+      actions:
+        cancel: "cancelorder"
+        disambiguate: "disambiguateToppings"
+      next: "confirmation"
+
+  disambiguateToppings:
+    component: "System.Output"
+    properties:
+      text: "Sorry, I got confused which toppings you want. Please re-enter."
+      keepTurn: true
+    transitions: {}
+  resetToppings:
+    component: "System.ResetVariables"
+    properties:
+      variableList: "pizza.Toppings"
+    transitions: {}
+  # also reset location text, might contain the updated toppings...
+  resetLocationText:
+    component: "System.ResetVariables"
+    properties:
+      variableList: "pizza.LocationText"
+    transitions:
+      next: "orderPizza"
+
+  confirmation:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - text: "Thank you for your order, your ${pizza.value.Size} ${pizza.value.Type} pizza with ${pizza.value.NoToppings?has_content?then('no extra toppings',pizza.value.Toppings?join(' and ')?replace('Extra Cheese','Extra '+pizza.value.CheeseType!''))}\
+            \ will be delivered in 30 minutes at ${pizza.value.Location?has_content?then('GPS position '+pizza.value.Location.latitude+','+pizza.value.Location.longitude,pizza.value.LocationText)}!"
+          type: "text"
+        - type: "attachment"
+          attachmentType: "image"
+          name: "image"
+          attachmentUrl: "${pizzaCardInfo.value[pizza.value.Type].image}"
+      processUserMessage: false
+    transitions:
+      return: "done"
+  cancelorder:
+    component: "System.Output"
+    properties:
+      text: "Your order is cancelled"
+    transitions:
+      return: "cancelOrder"
+  unresolved:
+    component: "System.Output"
+    properties:
+      text: "Sorry, I don't understand. What do you want to do? You can say 'order some pizza'"
+    transitions:
+      return: "unresolved"
+  greeting1:
+    component: "System.Output"
+    properties:
+      text: "Hello, I'm a Pizza ordering bot always ready for you."
+      keepTurn: true
+    transitions: {}
+  greetingEnd:
+    component: "System.Output"
+    properties:
+      text: "You can say 'Order some Pizza' or 'Cancel my order'."
+    transitions:
+      return: "greeting"

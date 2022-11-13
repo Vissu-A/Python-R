@@ -1,0 +1,8 @@
+{
+  "invocationName" : "CbPizza Skill",
+  "shortDescription" : "Pizza ordering skill which uses composite bag entity.",
+  "fullDescription" : "Pizza ordering skill which uses composite bag entity.",
+  "sampleInvocations" : [ "open cbpizza skill", "order pizza from cbpizza skill", "ask cbpizza skill to cancel my order" ],
+  "skillBotName" : "CbPizzaBot",
+  "skillBotVersion" : "1.0-DA"
+}

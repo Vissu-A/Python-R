@@ -1,0 +1,21 @@
+{
+  "name" : "WineOrderSize",
+  "type" : "ENUMVALUES",
+  "enumValues" : [ {
+    "canonicalName" : "Six (6) bottles",
+    "synonyms" : [ "6" ]
+  }, {
+    "canonicalName" : "Three (3) bottles",
+    "synonyms" : [ "3" ]
+  }, {
+    "canonicalName" : "One (1) bottle",
+    "synonyms" : [ "1" ]
+  } ],
+  "namedEntityRuleParams" : [ ],
+  "multiValue" : false,
+  "fuzzyMatch" : false,
+  "promptForDisambiguation" : false,
+  "botPrompts" : [ ],
+  "validationRules" : [ ],
+  "compositeBagItems" : [ ]
+}

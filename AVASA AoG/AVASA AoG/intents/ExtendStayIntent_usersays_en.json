@@ -1,0 +1,24 @@
+[
+  {
+    "id": "fb582536-a05e-45cc-89e5-6b1c50ef801c",
+    "data": [
+      {
+        "text": "extend my stay by ",
+        "userDefined": false
+      },
+      {
+        "text": "number",
+        "alias": "extension_duration",
+        "meta": "@sys.duration",
+        "userDefined": true
+      },
+      {
+        "text": " days",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

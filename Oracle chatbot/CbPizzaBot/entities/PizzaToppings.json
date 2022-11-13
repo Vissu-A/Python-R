@@ -1,0 +1,39 @@
+{
+  "name" : "PizzaToppings",
+  "type" : "ENUMVALUES",
+  "enumValues" : [ {
+    "canonicalName" : "Mushrooms",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "BBQ Sauce",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Onions",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Tuna",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Tomatoes",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Green Pepppers",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Extra Cheese",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Black Olives",
+    "synonyms" : null
+  } ],
+  "namedEntityRuleParams" : [ ],
+  "multiValue" : false,
+  "fuzzyMatch" : false,
+  "promptForDisambiguation" : true,
+  "botPrompts" : [ {
+    "text" : "Please enter Entity1",
+    "sequenceNr" : null
+  } ],
+  "validationRules" : [ ],
+  "compositeBagItems" : [ ]
+}

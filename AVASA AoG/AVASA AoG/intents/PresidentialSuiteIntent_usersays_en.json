@@ -1,0 +1,38 @@
+[
+  {
+    "id": "4be597a1-2a47-40a8-90fb-b9b5984039d4",
+    "data": [
+      {
+        "text": "Studio",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "e0464846-db15-4829-970a-611843f3eb14",
+    "data": [
+      {
+        "text": "Presidential Suite",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "c91b93be-8214-4d9d-96ff-d0edc4f47672",
+    "data": [
+      {
+        "text": "Presidential",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

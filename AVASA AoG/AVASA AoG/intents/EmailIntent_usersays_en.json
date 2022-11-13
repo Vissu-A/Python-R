@@ -1,0 +1,50 @@
+[
+  {
+    "id": "a4377a7d-ea76-4440-bff5-734e99aff3a0",
+    "data": [
+      {
+        "text": "email me this information",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "bc343415-c2b4-49ec-a60c-7818e53b7250",
+    "data": [
+      {
+        "text": "email me",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "4fe6decf-52a1-43fc-b85a-e338700c2fee",
+    "data": [
+      {
+        "text": "yes please email me",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "611825cc-1f24-46b7-8300-f3e16621dea9",
+    "data": [
+      {
+        "text": "yes email me",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

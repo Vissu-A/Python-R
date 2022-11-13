@@ -1,0 +1,97 @@
+metadata:
+  platformVersion: "1.0"
+main: true
+name: "PizzaBot"
+parameters:
+  age: 18
+context:
+  variables:
+    size: "PizzaSize"
+    type: "PizzaType"
+    crust: "PizzaCrust"
+    iResult: "nlpresult"
+states:
+  intent:
+    component: "System.Intent"
+    properties:
+      variable: "iResult"
+    transitions:
+      actions:
+        OrderPizza: "resolvesize"
+        CancelPizza: "cancelorder"
+        unresolvedIntent: "unresolved"
+  resolvesize:
+    component: "System.SetVariable"
+    properties:
+      variable: "size"
+      value: "${iResult.value.entityMatches['PizzaSize'][0]}"
+    transitions: {}
+  resolvecrust:
+    component: "System.SetVariable"
+    properties:
+      variable: "crust"
+      value: "${iResult.value.entityMatches['PizzaCrust'][0]}"
+    transitions: {}
+  resolvetype:
+    component: "System.SetVariable"
+    properties:
+      variable: "type"
+      value: "${iResult.value.entityMatches['PizzaType'][0]}"
+    transitions: {}
+  askage:
+    component: "System.Output"
+    properties:
+      text: "How old are you?"
+    transitions: {}
+  checkage:
+    component: "AgeChecker"
+    properties:
+      minAge: 18
+    transitions:
+      actions:
+        allow: "crust"
+        block: "underage"
+  crust:
+    component: "System.List"
+    properties:
+      options: "Thick,Thin,Stuffed,Pan"
+      prompt: "What crust do you want for your Pizza?"
+      variable: "crust"
+    transitions: {}
+  size:
+    component: "System.List"
+    properties:
+      options: "${size.type.enumValues}"
+      prompt: "What size Pizza do you want?"
+      variable: "size"
+    transitions: {}
+  type:
+    component: "System.Text"
+    properties:
+      prompt: "What Type of Pizza do you want?"
+      variable: "type"
+    transitions: {}
+  done:
+    component: "System.Output"
+    properties:
+      text: "Your ${size.value} ${type.value} Pizza is on its way."
+    transitions:
+      return: "done"
+  underage:
+    component: "System.Output"
+    properties:
+      text: "You are too young to order a pizza"
+    transitions:
+      return: "underage"
+  cancelorder:
+    component: "System.Output"
+    properties:
+      text: "Your order is cancelled"
+    transitions:
+      return: "cancelOrder"
+  unresolved:
+    component: "System.Output"
+    properties:
+      text: "I don't understand. What do you want to do?"
+    transitions:
+      return: "unresolved"

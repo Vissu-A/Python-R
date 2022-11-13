@@ -1,0 +1,76 @@
+{
+  "id": "89a02db4-0caf-4f4e-9492-c097f09344a8",
+  "parentId": "92104dfb-e3b2-4d08-b93e-f735d94727ee",
+  "rootParentId": "92104dfb-e3b2-4d08-b93e-f735d94727ee",
+  "name": "MakeMyReservationIntent",
+  "auto": true,
+  "contexts": [
+    "guest-info",
+    "welcomeMessageIntent-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "MakeMyReservationIntent",
+      "affectedContexts": [
+        {
+          "name": "MakeMyReservationIntent-followup",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "id": "3d88cc84-072e-4c0b-acc8-743650c45c13",
+          "required": false,
+          "dataType": "@sys.date",
+          "name": "arrivalDate",
+          "value": "$arrivalDate",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Arrival Date?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        },
+        {
+          "id": "e7fa52ee-6bc8-4843-b87f-1f13a5d5058f",
+          "required": false,
+          "dataType": "@sys.date",
+          "name": "departureDate",
+          "value": "$departureDate",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Departure Date?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

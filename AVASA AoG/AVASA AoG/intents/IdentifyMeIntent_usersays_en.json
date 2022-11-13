@@ -1,0 +1,16 @@
+[
+  {
+    "id": "4c4c3f7c-ed70-4669-bff9-4bdabd07fa9e",
+    "data": [
+      {
+        "text": "myPIN",
+        "alias": "myPIN",
+        "meta": "@sys.number-integer",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

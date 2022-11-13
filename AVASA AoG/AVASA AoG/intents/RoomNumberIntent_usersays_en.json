@@ -1,0 +1,72 @@
+[
+  {
+    "id": "2de22d21-5090-4f61-b337-121b665c9b6c",
+    "data": [
+      {
+        "text": "one naught one",
+        "alias": "number",
+        "meta": "@sys.number",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "c904a72f-d98b-4c92-bcb3-8cc2d30fe571",
+    "data": [
+      {
+        "text": "one not one",
+        "alias": "number",
+        "meta": "@sys.number",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "f6c7940b-76c2-444f-bbe5-fb764cb87c81",
+    "data": [
+      {
+        "text": "one o one",
+        "alias": "number",
+        "meta": "@sys.number",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "7ff604c8-4bbc-42b2-8ba3-4981d44a73b9",
+    "data": [
+      {
+        "text": "one zero one",
+        "alias": "number",
+        "meta": "@sys.number",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "bdb6953c-9f3b-4725-a250-3ea88443a6ea",
+    "data": [
+      {
+        "text": "101",
+        "alias": "number",
+        "meta": "@sys.number",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

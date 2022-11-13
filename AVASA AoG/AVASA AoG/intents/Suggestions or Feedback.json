@@ -1,0 +1,64 @@
+{
+  "id": "804fd6cc-3683-4fde-a497-fbb4f8cc20e9",
+  "name": "Suggestions or Feedback",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "ad113f25-1d4f-46d3-8244-25c5f06f73f2",
+          "required": true,
+          "dataType": "@sys.any",
+          "name": "harshit",
+          "value": "$harshit",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Please share your feedback by saying Feedback is followed by your response"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": "simple_response",
+          "platform": "google",
+          "lang": "en",
+          "textToSpeech": "Thanks for the feedback",
+          "ssml": "",
+          "displayText": ""
+        },
+        {
+          "type": "suggestion_chips",
+          "platform": "google",
+          "lang": "en",
+          "suggestions": [
+            {
+              "title": "help"
+            }
+          ]
+        },
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

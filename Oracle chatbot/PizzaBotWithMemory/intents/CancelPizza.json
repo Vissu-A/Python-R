@@ -1,0 +1,42 @@
+{
+  "name" : "CancelPizza",
+  "type" : "NLPIntent",
+  "intentParameters" : [ ],
+  "exampleData" : [ {
+    "sentence" : "Please cancel my pizza order",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Need to cancel my order",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Don't need my Pie anymore",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Cancel my order",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Please don't deliver my Pizza",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Cancel my Pizza please",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "How do I cancel my order?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Can i cancel my order?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "I'd like to cancel my order please",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "I don't want my Pizza anymore",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Its been more than 20 mts. Please cancel my order and issue a refund to my card.",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "I really don't want the Pizza anymore",
+    "exampleEntities" : [ ]
+  } ]
+}

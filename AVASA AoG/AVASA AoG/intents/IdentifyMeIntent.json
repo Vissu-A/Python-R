@@ -1,0 +1,53 @@
+{
+  "id": "66a50a55-a489-45e7-b65a-c7eab9c8b0b3",
+  "name": "IdentifyMeIntent",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "identifyMe",
+      "affectedContexts": [
+        {
+          "name": "guest-info",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [
+        {
+          "id": "d5da322c-86aa-493b-82ff-75f7624748f6",
+          "required": true,
+          "dataType": "@sys.number-integer",
+          "name": "myPIN",
+          "value": "$myPIN",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "State your PIN please"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

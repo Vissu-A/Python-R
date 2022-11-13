@@ -1,0 +1,11 @@
+{
+  "type" : "CUSTOM",
+  "name" : "BotsPizzaWithMemoryComponents",
+  "version" : "1.1",
+  "url" : "http://bots-samples-nodejs.default:8888/ext/custom-components/samples-service/components",
+  "credentials" : {
+    "type" : "basic",
+    "username" : "MyTestUser"
+  },
+  "enabled" : true
+}

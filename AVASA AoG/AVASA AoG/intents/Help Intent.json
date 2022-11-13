@@ -1,0 +1,66 @@
+{
+  "id": "d074c042-ebdb-480b-8c13-2afb4d62fcb5",
+  "name": "Help Intent",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "simple_response",
+          "platform": "google",
+          "lang": "en",
+          "textToSpeech": "These are some services you can use",
+          "ssml": "",
+          "displayText": ""
+        },
+        {
+          "type": "suggestion_chips",
+          "platform": "google",
+          "lang": "en",
+          "suggestions": [
+            {
+              "title": "Special Offers"
+            },
+            {
+              "title": "Explore Food"
+            },
+            {
+              "title": "Cab booking"
+            },
+            {
+              "title": "TV Menu"
+            },
+            {
+              "title": "City Information"
+            },
+            {
+              "title": "Gym or Spa Booking"
+            },
+            {
+              "title": "Room Info"
+            },
+            {
+              "title": "Suggestions/Feedback"
+            }
+          ]
+        },
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

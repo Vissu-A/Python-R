@@ -1,0 +1,8 @@
+{
+  "invocationName" : "Wine Skill",
+  "shortDescription" : "A wine ordering skill.",
+  "fullDescription" : "A wine ordering skill .",
+  "sampleInvocations" : [ "open wine skill", "order wine from wine skill", "ask wine skill to cancel my order" ],
+  "skillBotName" : "WineBot",
+  "skillBotVersion" : "1.0"
+}

@@ -1,0 +1,10 @@
+Difference B/W list and tuple
+================================
+1. list is mutable but, tuple is immutable
+2. tuple is more memory efficient than list.
+
+Difference B/W list and set
+==============================
+1. list can have duplicate elements but, set won't accept duplicate elements
+2. set is unordered datatype but, list is ordered datatype.
+i.e, elements in set not maintain insertion order, they will be added at random locations in set, when you add a new element order will be changed.

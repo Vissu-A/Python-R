@@ -1,0 +1,9 @@
+{
+  "type" : "USER",
+  "name" : "FinancialQnABot",
+  "displayName" : "FinancialQnABot",
+  "description" : "FinancialQnABot",
+  "version" : "1.0",
+  "intentTrainer" : "Sakura",
+  "trainingModels" : [ ]
+}

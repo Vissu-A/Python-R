@@ -1,0 +1,62 @@
+[
+  {
+    "id": "deea2ac3-9b19-494c-872d-7899d0ca982e",
+    "data": [
+      {
+        "text": "offers",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "87ca759a-6ac2-4cbd-bd4f-90bab1ce586b",
+    "data": [
+      {
+        "text": "Special offers",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "1ce97bde-fbe1-4f09-b1e5-1b065023e4b2",
+    "data": [
+      {
+        "text": "any offers in this hotel",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "60312697-4741-408e-8b19-83f20dca5ea8",
+    "data": [
+      {
+        "text": "any offers currently running here",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "c51908e0-9474-4b63-bbe4-e0b8c860fe54",
+    "data": [
+      {
+        "text": "any special offers currently running",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

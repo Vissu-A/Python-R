@@ -1,0 +1,50 @@
+[
+  {
+    "id": "3d724c2f-cab8-4830-8df6-0353b8705b66",
+    "data": [
+      {
+        "text": "yes please",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "ac3ea030-8fda-47da-9f90-dd9c90760292",
+    "data": [
+      {
+        "text": "ok book that please",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "2831cec6-f3c4-4942-ab74-4a1f3743118e",
+    "data": [
+      {
+        "text": "ok book that slot please",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "c4764a94-662c-4ca4-b9c2-8f83b40e7a02",
+    "data": [
+      {
+        "text": "yes please book that slot",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "invocationName" : "FinQnA Skill",
+  "shortDescription" : "QnA from FinQnA Skill",
+  "fullDescription" : "FinQnA Skill QnA bot.",
+  "sampleInvocations" : [ "go to finqna skill", "ask finqna skill how secure is my account", "ask finqna skill how can I view my balance " ],
+  "skillBotName" : "FinancialQnABot",
+  "skillBotVersion" : "1.0"
+}

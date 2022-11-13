@@ -1,0 +1,26 @@
+[
+  {
+    "id": "5afee284-2c71-4bff-81bf-a802659a7c68",
+    "data": [
+      {
+        "text": "start my check out",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "cabd6a8b-e605-4a88-bea8-aeb6d5576fb0",
+    "data": [
+      {
+        "text": "initiate my check out",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

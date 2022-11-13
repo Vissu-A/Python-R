@@ -1,0 +1,46 @@
+{
+  "id": "503ed401-3a05-4493-a70c-19e949bb9da8",
+  "name": "LastNameIntent",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "88f02b28-cea6-4930-813a-ca9b8207184c",
+          "required": true,
+          "dataType": "@LastNames",
+          "name": "lastName",
+          "value": "$lastName",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Your Last Name?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

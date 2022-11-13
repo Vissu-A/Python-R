@@ -1,0 +1,9 @@
+{
+  "type" : "HOSTED",
+  "name" : "BotsCustomComponents",
+  "version" : "1.1",
+  "packageFileName" : "samples-components-service-pkg-1.0.0.tgz",
+  "packageChecksum" : "f23d6f532c4629dc4caa1a68b2cff10c",
+  "runtime" : "node",
+  "enabled" : true
+}

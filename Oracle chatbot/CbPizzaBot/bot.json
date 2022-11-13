@@ -1,0 +1,9 @@
+{
+  "type" : "USER",
+  "name" : "CbPizzaBot",
+  "displayName" : "CbPizzaBot",
+  "description" : "Pizza ordering skill which uses composite bag entity.",
+  "version" : "1.0-DA",
+  "intentTrainer" : "Sakura",
+  "trainingModels" : [ ]
+}

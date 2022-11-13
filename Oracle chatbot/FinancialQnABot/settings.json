@@ -1,0 +1,25 @@
+{
+  "settings" : {
+    "Multistage_Pipeline" : true,
+    "Verbose_Output" : false,
+    "Result_Size" : 10,
+    "Pipeline_Output_Size" : 100,
+    "botConfig" : [ {
+      "displayName" : "Confidence threshold",
+      "name" : "system.intentConfidenceThreshold",
+      "description" : "Confidence threshold is the minimum confidence level required to match the intent with the user input. If there is no match exceeding this level, then the transition action is set to 'unresolvedIntent'.",
+      "type" : "float",
+      "value" : 0.4
+    }, {
+      "displayName" : "Confidence Win Margin",
+      "name" : "system.intentConfidenceWinMargin",
+      "description" : "The top intent is picked if its confidence delta with other intents is greater than or equal to the confidenceWinMargin. Top n intents are prompted to the user if they are within the confidenceWinMargin.",
+      "type" : "float",
+      "value" : 0.1
+    } ]
+  },
+  "conversationHistoryEnabled" : false,
+  "insightsEnabled" : false,
+  "intentResultHistoryEnabled" : false,
+  "qnAResultHistoryEnabled" : false
+}

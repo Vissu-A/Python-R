@@ -1,0 +1,103 @@
+{
+  "id": "3ffd9f6f-ff4b-4177-b789-0e70c21670a0",
+  "name": "ContinentalIntent",
+  "auto": true,
+  "contexts": [
+    "guest-info"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [
+        {
+          "name": "guest-info",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "ContinentalIntent-followup",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "simple_response",
+          "platform": "google",
+          "lang": "en",
+          "textToSpeech": "Please Select from the below options",
+          "ssml": "",
+          "displayText": ""
+        },
+        {
+          "type": "carousel_card",
+          "platform": "google",
+          "lang": "en",
+          "items": [
+            {
+              "optionInfo": {
+                "key": "Yorkshire Lamb Patties",
+                "synonyms": []
+              },
+              "title": "Yorkshire Lamb Patties",
+              "description": "Non Veg",
+              "image": {
+                "url": "https://www.ndtv.com/cooks/images/Yorkshire.Lamb.Patties.jpg",
+                "accessibilityText": "text1"
+              }
+            },
+            {
+              "optionInfo": {
+                "key": "Chicken and Cheese Salad",
+                "synonyms": []
+              },
+              "title": "Chicken and Cheese Salad",
+              "description": "Non Veg",
+              "image": {
+                "url": "https://www.ndtv.com/cooks/images/chicken%20cheese%20salad-620.jpg",
+                "accessibilityText": "text2"
+              }
+            },
+            {
+              "optionInfo": {
+                "key": "Roesti and Salad",
+                "synonyms": []
+              },
+              "title": "Roesti and Salad",
+              "description": "Veg",
+              "image": {
+                "url": "https://www.ndtv.com/cooks/images/roesti%20and%20salad-620.jpg",
+                "accessibilityText": "text3"
+              }
+            },
+            {
+              "optionInfo": {
+                "key": "Apple Sausage Plait",
+                "synonyms": []
+              },
+              "title": "Apple Sausage Plait",
+              "description": "Non Veg",
+              "image": {
+                "url": "https://www.ndtv.com/cooks/images/apple%20sausage%20plait-620.jpg",
+                "accessibilityText": "text4"
+              }
+            }
+          ]
+        },
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

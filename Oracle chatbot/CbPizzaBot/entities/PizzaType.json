@@ -1,0 +1,39 @@
+{
+  "name" : "PizzaType",
+  "type" : "ENUMVALUES",
+  "enumValues" : [ {
+    "canonicalName" : "CHEESE BASIC",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "PEPPERONI",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "MEAT LOVER",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "SUPREME",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "PREMIUM GARDEN VEGGIE",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "ULTIMATE CHEESE LOVER",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "HAWAIIAN CHICKEN",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "BACON SPINACH ALFREDO",
+    "synonyms" : null
+  } ],
+  "namedEntityRuleParams" : [ ],
+  "multiValue" : false,
+  "fuzzyMatch" : false,
+  "promptForDisambiguation" : true,
+  "botPrompts" : [ {
+    "text" : "Please enter PizzaType",
+    "sequenceNr" : null
+  } ],
+  "validationRules" : [ ],
+  "compositeBagItems" : [ ]
+}

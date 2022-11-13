@@ -1,0 +1,30 @@
+[
+  {
+    "id": "5fc7ad16-36d8-48b5-8307-987595983104",
+    "data": [
+      {
+        "text": "Book ",
+        "userDefined": false
+      },
+      {
+        "text": "date",
+        "alias": "any",
+        "meta": "@sys.any",
+        "userDefined": true
+      },
+      {
+        "text": " and ",
+        "userDefined": false
+      },
+      {
+        "text": "time",
+        "alias": "time",
+        "meta": "@sys.time",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

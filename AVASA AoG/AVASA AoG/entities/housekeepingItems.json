@@ -1,0 +1,9 @@
+{
+  "id": "ceb31cfa-f53b-4586-9deb-f01a99f43436",
+  "name": "housekeepingItems",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}

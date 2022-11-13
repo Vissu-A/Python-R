@@ -1,0 +1,16 @@
+[
+  {
+    "id": "ff245deb-b3c8-4b45-849f-0b999df2f265",
+    "data": [
+      {
+        "text": "tomorrow",
+        "alias": "date",
+        "meta": "@sys.date",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

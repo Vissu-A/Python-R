@@ -1,0 +1,58 @@
+{
+  "id": "2d3be71d-5253-4831-9530-732925c5bb3d",
+  "name": "TomorrowIntent",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "5d596172-46f2-42bc-8dd8-95338cdd45e2",
+          "required": false,
+          "dataType": "@sys.date",
+          "name": "date",
+          "value": "$date",
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        },
+        {
+          "id": "61d8416f-910e-4aca-b5ed-526106d1c9ba",
+          "required": true,
+          "dataType": "@sys.date",
+          "name": "departureDate",
+          "value": "$departureDate",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Departure Date?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

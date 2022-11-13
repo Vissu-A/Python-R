@@ -1,0 +1,62 @@
+[
+  {
+    "id": "ae4f2183-315f-4776-abab-2edcc0514af9",
+    "data": [
+      {
+        "text": "dining options",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "a7cc5d97-9f53-4e03-8c3d-4599adc4f029",
+    "data": [
+      {
+        "text": "in room dining options",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "3df0aef3-c524-4420-8f2f-76e45bbbe6c0",
+    "data": [
+      {
+        "text": "give me dining options",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "6a7093f4-6b4e-4360-84fa-371a66d6d1f1",
+    "data": [
+      {
+        "text": "food menu",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "98705e39-24b2-45a1-a6d5-38e7b4960da1",
+    "data": [
+      {
+        "text": "dining menu",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "updated": 0
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "f300c06e-9de7-4cad-932a-b6c4a253eb3d",
+    "data": [
+      {
+        "text": "pick me up from this ",
+        "userDefined": false
+      },
+      {
+        "text": "location",
+        "alias": "location",
+        "meta": "@sys.geo-city-gb",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "f4900870-167c-4f46-9846-6a2652a080bc",
+    "data": [
+      {
+        "text": "send me a cab from ",
+        "userDefined": false
+      },
+      {
+        "text": "location",
+        "alias": "location",
+        "meta": "@sys.geo-city-gb",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

@@ -1,0 +1,45 @@
+{
+  "name" : "PizzaType",
+  "type" : "ENUMVALUES",
+  "enumValues" : [ {
+    "canonicalName" : "cheese",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Veggie Lovers",
+    "synonyms" : [ "veg", "vegee", "veggi" ]
+  }, {
+    "canonicalName" : "pepperoni",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Hawaiian",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Meat Lovers",
+    "synonyms" : [ "meat" ]
+  }, {
+    "canonicalName" : "mushroom",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "sausage",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "supreme",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Chicken",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Italian",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Gourmet Veggie",
+    "synonyms" : null
+  } ],
+  "namedEntityRuleParams" : [ ],
+  "multiValue" : false,
+  "fuzzyMatch" : false,
+  "promptForDisambiguation" : true,
+  "botPrompts" : [ ],
+  "validationRules" : [ ],
+  "compositeBagItems" : [ ]
+}

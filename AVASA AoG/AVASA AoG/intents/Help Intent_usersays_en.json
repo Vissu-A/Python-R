@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ac320a41-bff0-4427-b683-2f8c8b8e26a0",
+    "data": [
+      {
+        "text": "Home",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "cefbc139-29e3-4354-a731-b355ce2e34da",
+    "data": [
+      {
+        "text": "other options",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "0fffb54b-6299-4e6c-8950-efceac803cd4",
+    "data": [
+      {
+        "text": "help",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

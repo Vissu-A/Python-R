@@ -1,0 +1,38 @@
+[
+  {
+    "id": "58da42a8-e207-40f6-bb27-ff7bd66a7b35",
+    "data": [
+      {
+        "text": "Book Gym or SPA",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "4a842286-469b-4e63-8e56-5920440048b7",
+    "data": [
+      {
+        "text": "Gym or spa Booking",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "87ed9ad7-c134-4293-b63a-d9dbf11e0acc",
+    "data": [
+      {
+        "text": "Gym and spa booking",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "updated": 0
+  }
+]

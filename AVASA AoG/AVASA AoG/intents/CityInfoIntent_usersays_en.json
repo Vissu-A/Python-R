@@ -1,0 +1,62 @@
+[
+  {
+    "id": "46f3af82-d106-409a-bbe5-95d7f0b0edab",
+    "data": [
+      {
+        "text": "Know about this City",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "55e246e8-179d-4d66-b60b-bcfe591f767c",
+    "data": [
+      {
+        "text": "City Information",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "0ab1592f-006e-43d8-9d17-a4491fc312d5",
+    "data": [
+      {
+        "text": "Tell me about this city",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "87012e2b-d235-47d1-9a30-bdca1ed7bc3f",
+    "data": [
+      {
+        "text": "city info",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "cd7e1793-8824-4cd1-9818-668cca6ff129",
+    "data": [
+      {
+        "text": "city information",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

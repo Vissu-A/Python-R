@@ -1,0 +1,49 @@
+{
+  "name" : "FinancialQnABot",
+  "enabled" : true,
+  "dataSources" : [ {
+    "name" : "faq",
+    "type" : "CSV",
+    "languageTag" : "en",
+    "configJson" : "{\"format\":\"csv\"}",
+    "description" : null,
+    "enabled" : true,
+    "fallback" : false
+  } ],
+  "thesaurusItems" : [ {
+    "type" : "FAQ_VERB_PREFIX",
+    "languageTag" : "en",
+    "definition" : "why ,how to,how do i ,do i ,how can,what's the cause,what is the cause,what's the reason,what is the reason,show how,show me how,where can",
+    "translation" : "why ,how to,how do i ,do i ,how can,what's the cause,what is the cause,what's the reason,what is the reason,show how,show me how,where can",
+    "enabled" : true,
+    "default" : true
+  }, {
+    "type" : "REQUEST_VERB",
+    "languageTag" : "en",
+    "definition" : ",",
+    "translation" : ",",
+    "enabled" : true,
+    "default" : true
+  }, {
+    "type" : "REQUEST_VERB_EXPANSION",
+    "languageTag" : "en",
+    "definition" : "re,re-,un,dis",
+    "translation" : "re,re-,un,dis",
+    "enabled" : true,
+    "default" : true
+  }, {
+    "type" : "REQUEST_VERB_PREFIX",
+    "languageTag" : "en",
+    "definition" : "do not,please do not,don't,please don't,i don't want to,i want you to,i don't want you to,i want u to,i don't want u to,what is my,where is my,when is my,what are my,where are my,when are my,what's my,where's my,when's my",
+    "translation" : "do not,please do not,don't,please don't,i don't want to,i want you to,i don't want you to,i want u to,i don't want u to,what is my,where is my,when is my,what are my,where are my,when are my,what's my,where's my,when's my",
+    "enabled" : true,
+    "default" : true
+  }, {
+    "type" : "STOP_WORD",
+    "languageTag" : "en",
+    "definition" : "a,about,all,also,am,an,and,any,are,as,ask,at,b,be,being,but,by,can,could,d,did,do,does,e,else,etc,f,for,from,g,go,h,had,has,have,have,he,help,here,his,how,i,ie,if,in,into,is,it,k,know,l,let,m,me,mine,mr,mrs,my,n,need,no,now,o,of,oh,ok,on,or,p,please,q,r,s,say,see,seem,shall,she,should,show,so,still,such,t,tell,that,the,their,them,then,there,these,they,this,to,too,try,u,until,us,v,via,viz,vs,w,want,was,way,we,what,when,where,whether,which,while,who,will,with,would,x,you,your,z",
+    "translation" : "a,about,all,also,am,an,and,any,are,as,ask,at,b,be,being,but,by,can,could,d,did,do,does,e,else,etc,f,for,from,g,go,h,had,has,have,have,he,help,here,his,how,i,ie,if,in,into,is,it,k,know,l,let,m,me,mine,mr,mrs,my,n,need,no,now,o,of,oh,ok,on,or,p,please,q,r,s,say,see,seem,shall,she,should,show,so,still,such,t,tell,that,the,their,them,then,there,these,they,this,to,too,try,u,until,us,v,via,viz,vs,w,want,was,way,we,what,when,where,whether,which,while,who,will,with,would,x,you,your,z",
+    "enabled" : true,
+    "default" : true
+  } ]
+}

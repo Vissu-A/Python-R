@@ -1,0 +1,309 @@
+metadata:
+  platformVersion: "1.1"
+main: true
+name: "CrcPizzaBot"
+context:
+  variables:
+    iresult: "nlpresult"
+    pizzas: "string"
+    dummy: "string"
+    orderedPizza: "string"
+    orderedPizzaImage: "string"
+    pizzaSize: "PizzaSize"
+    location: "string"
+    cardsRangeStart: "int"
+    autoNumberPostbackActions: "boolean"
+    textOnly: "boolean"
+defaultTransitions:
+  error: "DefaultErrorHandler"
+  actions:
+    system.outOfOrderMessage: "HandleOutOfOrderMessage"
+states:
+  setTextOnlyChannel:
+    component: "System.SetVariable"
+    properties:
+      variable: "textOnly"
+      value: "${(system.message.channelConversation.channelType=='webhook')?then('true','false')}"
+  setAutoNumbering:
+    component: "System.SetVariable"
+    properties:
+      variable: "autoNumberPostbackActions"
+      value: "${textOnly}"
+  setCardsRangeStart:
+    component: "System.SetVariable"
+    properties:
+      variable: "cardsRangeStart"
+      value: 0
+    transitions: {}
+  LoadPizzas:
+    component: "System.SetVariable"
+    properties:
+      variable: "pizzas"
+      value:
+      - name: "CHEESE"
+        description: "Classic marinara sauce topped with whole milk mozzarella cheese."
+        image: "https://cdn.pixabay.com/photo/2017/09/03/10/35/pizza-2709845__340.jpg"
+      - name: "PEPPERONI"
+        description: "Classic marinara sauce with authentic old-world style pepperoni."
+        image: "https://cdn.pixabay.com/photo/2017/08/02/12/38/pepperoni-2571392__340.jpg"
+      - name: "MEAT LOVER"
+        description: "Classic marinara sauce, authentic old-world pepperoni, all-natural\
+          \ Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork\
+          \ and beef."
+        image: "https://cdn.pixabay.com/photo/2017/07/22/22/51/big-2530144__340.jpg"
+      - name: "SUPREME"
+        description: "Classic marinara sauce, authentic old-world pepperoni, seasoned\
+          \ pork, beef, fresh mushrooms, fresh green bell peppers and fresh red onions."
+        image: "https://cdn.pixabay.com/photo/2017/07/22/22/57/pizza-2530169__340.jpg"
+      - name: "PREMIUM GARDEN VEGGIE"
+        description: "Premium crushed tomato sauce topped with green peppers, red\
+          \ onions, mushrooms, Roma tomatoes and roasted spinach with our Hut Favorite\
+          \ on the crust."
+        image: "https://cdn.pixabay.com/photo/2017/07/22/22/57/pizza-2530169__340.jpg"
+      - name: "ULTIMATE CHEESE LOVER"
+        description: "Garlic Parmesan sauce topped with 50% more mozzarella cheese\
+          \ with a toasted Parmesan crust."
+        image: "https://cdn.pixabay.com/photo/2017/08/02/12/38/pepperoni-2571392__340.jpg"
+      - name: "HAWAIIAN CHICKEN"
+        description: "Grilled chicken, ham, pineapple and green bell peppers."
+        image: "https://cdn.pixabay.com/photo/2017/07/22/22/51/big-2530144__340.jpg"
+      - name: "BACON SPINACH ALFREDO"
+        description: "Garlic Parmesan sauce topped with bacon, mushrooms and roasted\
+          \ spinach with a salted pretzel crust."
+        image: "https://cdn.pixabay.com/photo/2017/09/03/10/35/pizza-2709845__340.jpg"
+    transitions: {}
+  Intent:
+    component: "System.Intent"
+    properties:
+      variable: "iresult"
+    transitions:
+      actions:
+        unresolvedIntent: "Unresolved"
+        OrderPasta: "OrderPasta"
+        ShowMenu: "ShowMenu"
+        OrderPizza: "OrderPizza"
+  Unresolved:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Sorry, I don't understand you, I am not human. Please try another\
+            \ sentence."
+          name: "Sorry"
+          separateBubbles: true
+      processUserMessage: false
+    transitions:
+      return: "done"
+  ShowMenu:
+    component: "System.CommonResponse"
+    properties:
+      processUserMessage: true
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Hello ${profile.firstName}, this is our menu today:"
+          footerText: "${(textOnly.value=='true')?then('Enter number to make your choice','')}"
+          name: "hello"
+          separateBubbles: true
+          actions:
+          - label: "Pizzas"
+            type: "postback"
+            payload:
+              action: "pizza"
+            name: "Pizzas"
+          - label: "Pastas"
+            type: "postback"
+            payload:
+              action: "pasta"
+            name: "Pastas"
+    transitions:
+      actions:
+        pizza: "OrderPizza"
+        pasta: "OrderPasta"
+        textReceived: "Intent"
+  OrderPizza:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Here are our pizzas you can order today"
+          separateBubbles: true
+          visible:
+            expression: "<#if cardsRangeStart?number == 0>true<#else>false</#if>"
+          name: "Our pizzas"
+        - type: "text"
+          text: "Some more pizzas for you:"
+          separateBubbles: true
+          visible:
+            expression: "<#if cardsRangeStart?number != 0>true<#else>false</#if>"
+          name: "More pizzas"
+        - type: "cards"
+          cardLayout: "vertical"
+          name: "PizzaCards"
+          actions:
+          - label: "More Pizzas"
+            type: "postback"
+            visible:
+              expression: "<#if cardsRangeStart?number+4 < pizzas.value?size>true<#else>false</#if>"
+            payload:
+              action: "more"
+              variables:
+                cardsRangeStart: "${cardsRangeStart?number+4}"
+            name: "More"
+          cards:
+          - title: "${pizzas.name}"
+            description: "${pizzas.description}"
+            imageUrl: "${pizzas.image}"
+            name: "PizzaCard"
+            iteratorVariable: "pizzas"
+            rangeStart: "${cardsRangeStart}"
+            rangeSize: "4"
+            actions:
+            - label: "Order Now"
+              type: "postback"
+              payload:
+                action: "order"
+                variables:
+                  orderedPizza: "${pizzas.name}"
+                  orderedPizzaImage: "${pizzas.image}"
+              name: "Order"
+          footerText: "${(textOnly.value=='true')?then('Enter a pizza number to make your choice','')}"
+          channelCustomProperties:
+          - channel: "facebook"
+            properties:
+              top_element_style: "large"
+      processUserMessage: true
+    transitions:
+      actions:
+        order: "AskPizzaSize"
+        more: "OrderPizza"
+        textReceived: "Intent"
+  OrderPasta:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Sorry, no pasta today"
+          name: "pasta"
+      processUserMessage: false
+    transitions:
+      return: "done"
+  AskPizzaSize:
+    component: "System.CommonResponse"
+    properties:
+      variable: "pizzaSize"
+      nlpResultVariable: "iresult"
+      maxPrompts: 2
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "<#if system.invalidUserInput == 'true'>Invalid size, please try again.\
+            \ </#if>What size do you want?"
+          name: "What size"
+          footerText: "${(textOnly.value=='true')?then('Enter number to choose your size','')}"
+          separateBubbles: true
+          actions:
+          - label: "${enumValue}"
+            type: "postback"
+            payload:
+              action: ""
+              variables:
+                pizzaSize: "${enumValue}"
+            name: "size"
+            iteratorVariable: "pizzaSize.type.enumValues"
+      processUserMessage: true
+    transitions:
+      actions:
+        cancel: "Intent"
+      next: "AskLocation"
+  AskLocation:
+    component: "System.CommonResponse"
+    properties:
+      variable: "location"
+      metadata:
+        responseItems:
+        - text: "To which location do you want the pizza to be delivered?"
+          type: "text"
+          name: "What location"
+          separateBubbles: true
+        globalActions:
+        - label: "Send Location"
+          type: "location"
+          name: "SendLocation"
+      processUserMessage: true
+    transitions:
+      actions:
+        cancel: "Intent"
+      next: "Confirmation"
+  Confirmation:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - text: "Thank you for your order, your ${pizzaSize} ${orderedPizza} pizza\
+            \ will be delivered in 30 minutes at GPS position ${location.value.latitude},${location.value.longitude}!"
+          type: "text"
+          name: "conf"
+          separateBubbles: true
+        - type: "attachment"
+          attachmentType: "image"
+          name: "image"
+          attachmentUrl: "${orderedPizzaImage}"
+          footerText: "${(textOnly.value=='true')?then('Have a nice day!','')}"
+      processUserMessage: false
+    transitions:
+      return: "done"
+  # HandleOutOfOrderMessage state showcases various ways to gracefully handle out-of-order postback:
+  # 1. simply re-execute the state that originally provided the postback action (ShowMenu in this case). The ShowMenu state still has access to the user message with the out-of-order postback payload and will process it normally. This is also default behavior if you do not catch the system.outOfOrderMessage transition at all.
+  # 2. Ask the user whether he wants to change his earlier pizza choice, and if so, make the change. The ChangePizza state updates the ordered pizza data in the postback payload of the Yes button. We cannot transition back to the OrderedPizza state in this case because the choice made by user in ChangePizza is now the new user message, and the out-of-order postback payload is lost.
+  # 3. Tell the user this option is no longer available (if he tries to change the pizza size)
+  HandleOutOfOrderMessage:
+    component: "System.Switch"
+    properties:
+      variable: "system.actualState"
+      values:
+      - "ShowMenu"
+      - "OrderPizza"
+      - "AskPizzaSize"
+    transitions:
+      actions:
+        NONE: "ActionNoLongerAvailable"
+        ShowMenu: "${system.actualState}"
+        OrderPizza: "${(system.message.messagePayload.postback.action=='more')?then('OrderPizza','ChangePizza')}"
+        AskPizzaSize: "ActionNoLongerAvailable"
+  ChangePizza:
+    component: "System.CommonResponse"
+    properties:
+      processUserMessage: true
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Do you want to change the pizza from ${orderedPizza} to ${system.message.messagePayload.postback.variables.orderedPizza}?"
+          footerText: "${(textOnly.value=='true')?then('Enter number to make your choice','')}"
+          actions:
+          - label: "Yes"
+            type: "postback"
+            payload:
+              variables:
+                orderedPizza: "${system.message.messagePayload.postback.variables.orderedPizza}"
+                orderedPizzaImage: "${system.message.messagePayload.postback.variables.orderedPizzaImage}"
+          - label: "No"
+            type: "postback"
+            payload: {}
+    transitions:
+      next: "${system.expectedState}"
+  ActionNoLongerAvailable:
+    component: "System.Output"
+    properties:
+      text: "Sorry, this action is no longer available"
+    transitions:
+      return: "done"
+  DefaultErrorHandler:
+    component: "System.Output"
+    properties:
+      text: "Unexpected error occurred, please contact the helpdesk"
+    transitions:
+      return: "done"

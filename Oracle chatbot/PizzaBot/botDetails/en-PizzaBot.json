@@ -1,0 +1,8 @@
+{
+  "invocationName" : "Pizza Skill",
+  "shortDescription" : "Order our amazing pizza's",
+  "fullDescription" : "Pizza Skill skill to order pizza and cancel order.",
+  "sampleInvocations" : [ "go to pizza skill", "order pizza from pizza skill", "ask pizza skill to cancel order " ],
+  "skillBotName" : "PizzaBot",
+  "skillBotVersion" : "1.0"
+}

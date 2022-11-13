@@ -1,0 +1,102 @@
+[
+  {
+    "id": "b2e77c36-7172-4f3f-a97a-a11b8049e0b8",
+    "data": [
+      {
+        "text": "dental kit",
+        "alias": "housekeepingItems",
+        "meta": "@housekeepingItems",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "0d70da90-a445-4099-aa9f-6597f319eff0",
+    "data": [
+      {
+        "text": "tell housekeeping to send me a ",
+        "userDefined": false
+      },
+      {
+        "text": "dental kit",
+        "alias": "housekeepingItems",
+        "meta": "@housekeepingItems",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "53dcb893-4b9f-4c86-a1cc-95c02faeeba4",
+    "data": [
+      {
+        "text": "housekeeping get me a ",
+        "userDefined": false
+      },
+      {
+        "text": "towel",
+        "alias": "housekeepingItems",
+        "meta": "@housekeepingItems",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "90c2c9b2-dcbe-4400-8e11-a263dcad57dc",
+    "data": [
+      {
+        "text": "send me a ",
+        "userDefined": false
+      },
+      {
+        "text": "dental kit",
+        "alias": "housekeepingItems",
+        "meta": "@housekeepingItems",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "210ebfe3-96a2-44f8-aa90-db6cc8d7c21f",
+    "data": [
+      {
+        "text": "get me ",
+        "userDefined": false
+      },
+      {
+        "text": "tooth brush",
+        "alias": "housekeepingItems",
+        "meta": "@housekeepingItems",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "eb879dc1-bf7d-42fe-9617-0e5b43fa55a0",
+    "data": [
+      {
+        "text": "lighter",
+        "alias": "housekeepingItems",
+        "meta": "@housekeepingItems",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

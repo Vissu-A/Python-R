@@ -1,0 +1,43 @@
+======================================================================================================================================
+																CREATING VIRTUAL ENVIRONMENT
+======================================================================================================================================
+
+We can create the virtual environment by using 2 modules.
+1. venv
+2. virtualenv
+
+
+What is the difference venv and virtualenv?
+===========================================
+venv 		==> this module comes built-in with python installation.
+virtualenv  ==> this module need to be installed explicitly.
+
+
+how to decide that, which module to be used for creating virtual environment?
+==============================================================================
+scenarion-1: when we want to create an virtual environment with a specific python version other than the default/global version, then we have
+to use "virtualenv" module.
+
+scenarion-2: when we want to create an virtual environment with default/global python version, then we have to use "venv" module.
+
+
+
+Creating virtual environment by using "virtualenv" module?
+===========================================================
+	installing the module
+		> pip install virtualenv
+	
+	creating the virtual environment
+		> python -m virtualenv -p <"specific python version installed path"> <virtual-environment-name>
+	
+		Ex:
+		> python -m virtualenv -p "C:\Users\Vissu\AppData\Local\Programs\Python\Python310\python.exe" PyLatestVer
+		
+
+Creating virtual environment by using "venv" module?
+=====================================================
+	Creating the virtual environment
+		> python -m venv <virtual-environment-name>
+		
+		Ex:
+		> python -m venv PyLatestVer-1

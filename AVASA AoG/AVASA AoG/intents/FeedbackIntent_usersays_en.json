@@ -1,0 +1,48 @@
+[
+  {
+    "id": "13860885-7481-46cf-a447-0a45efd5a587",
+    "data": [
+      {
+        "text": "feedback of the hotel",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "a712950c-86c8-4413-b142-88deba559ebb",
+    "data": [
+      {
+        "text": "I am saying ",
+        "userDefined": false
+      },
+      {
+        "text": "feedback",
+        "meta": "@sys.ignore",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "3cf02c6d-a9b3-4b17-8aa4-b46b0d2c904e",
+    "data": [
+      {
+        "text": "feedback",
+        "meta": "@sys.ignore",
+        "userDefined": true
+      },
+      {
+        "text": " for the hotel",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

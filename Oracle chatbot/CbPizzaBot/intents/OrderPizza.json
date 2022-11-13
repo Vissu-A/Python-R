@@ -1,0 +1,49 @@
+{
+  "name" : "OrderPizza",
+  "type" : "NLPIntent",
+  "intentParameters" : [ {
+    "name" : "Pizza",
+    "required" : true,
+    "entity" : "Pizza"
+  } ],
+  "exampleData" : [ {
+    "sentence" : "I want to order pizza for lunch",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Would love a large Pepperoni please!",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Order Pizza!",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "What's on the menu today? ",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Do you server gluten-free pizza?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Can I order a Pizza?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Let's order a cheese pizza",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "How much does a slice of pizza cost?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "I want pizza",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "What types of pizzas can I order?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Do you have deep dish pizzas available?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Would you happen to have thin crust options on your Pizzas?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "I feel like eating some pizza",
+    "exampleEntities" : [ ]
+  } ]
+}

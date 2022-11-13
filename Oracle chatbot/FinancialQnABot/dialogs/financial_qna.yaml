@@ -1,0 +1,22 @@
+metadata:
+  platformVersion: "1.0"
+main: true
+name: "financial_qna"
+context:
+  variables:
+    greeting: "string"
+    name: "string"
+    terminateChoice: "string"
+states:
+  qna:
+    component: "System.QnA"
+    transitions:
+      actions:
+        none: "unresolved"
+      next: "qna"
+  unresolved:
+    component: "System.Output"
+    properties:
+      text: "Sorry, I did not find any match. Can you rephrase the question?"
+    transitions:
+      return: "done"

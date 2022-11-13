@@ -1,0 +1,63 @@
+query,topIntent
+About Services,AboutServices
+what services are offering,AboutServices
+Ask About Services,AboutServices
+show all services,AboutServices
+Services,AboutServices
+bonding,Bonding
+Bonding,Bonding
+dental bonding,Bonding
+book online,BookOnline
+online booking,BookOnline
+make online booking,BookOnline
+dental bridges,Bridges
+would like to know about dental bridges,Bridges
+bridges,Bridges
+ChatBot,ChatBot
+chatbot,ChatBot
+Chat Bot,ChatBot
+chat bot,ChatBot
+cosmetic,CosmeticDentistry
+cosmetic dentistry,CosmeticDentistry
+cosmetic services,CosmeticDentistry
+dental crowns,Crowns
+Crowns,Crowns
+emergency,EmergencyDentistry
+Emergency Dentistry,EmergencyDentistry
+emergency services,EmergencyDentistry
+Family Dentistry,FamilyDentistry
+family services,FamilyDentistry
+family,FamilyDentistry
+Make An Appointment,MakeAnAppointment
+Make Appointment,MakeAnAppointment
+make appointment,MakeAnAppointment
+how to make an appointment,MakeAnAppointment
+make an appointment,MakeAnAppointment
+appointment,MakeAnAppointment
+need appointment,MakeAnAppointment
+make appointment tomorrow,MakeAppointmentDate
+would like to make appointment today,MakeAppointmentDate
+make appointment today,MakeAppointmentDate
+medicare for kids,MedicareForKids
+kids,MedicareForKids
+rate us,Rating
+rating,Rating
+rate the app,Rating
+rate the bot,Rating
+rate bot,Rating
+tooth colour fillings,ToothColorFillings
+tooth color fillings,ToothColorFillings
+color fillings,ToothColorFillings
+tooth color filling,ToothColorFillings
+tooth color,ToothColorFillings
+Tooth Color Fillings,ToothColorFillings
+colour filling,ToothColorFillings
+ToothColorFillings,ToothColorFillings
+veneers,Veneers
+would like to know about veeners,Veneers
+dental veneers,Veneers
+hi,Welcome
+hey,Welcome
+hello,Welcome
+need help,Welcome
+help,Welcome

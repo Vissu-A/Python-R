@@ -1,0 +1,38 @@
+[
+  {
+    "id": "07e59784-926e-4847-878e-77a670215e60",
+    "data": [
+      {
+        "text": "hotel services",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "df40e520-fe2c-4c4e-bfdb-4c19b851eff7",
+    "data": [
+      {
+        "text": "access services",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "610e3bfc-2915-4226-9a30-2e57da1d330b",
+    "data": [
+      {
+        "text": "Access Hotel Services",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

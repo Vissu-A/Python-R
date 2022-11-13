@@ -1,0 +1,57 @@
+{
+  "name" : "OrderPizza",
+  "type" : "NLPIntent",
+  "intentParameters" : [ {
+    "name" : "size",
+    "required" : true,
+    "entity" : "PizzaSize"
+  }, {
+    "name" : "crust",
+    "required" : true,
+    "entity" : "PizzaCrust"
+  }, {
+    "name" : "type",
+    "required" : true,
+    "entity" : "PizzaType"
+  } ],
+  "exampleData" : [ {
+    "sentence" : "Let's order a cheese pizza",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Do you server gluten-free pizza?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Can I order a Pizza?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Do you have deep dish pizzas available?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "I'd like to order a Pie please",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "How much does a slice of pizza cost?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "What types of pizzas can I order?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Would you happen to have thin crust options on your Pizzas?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "I want to order pizza for lunch",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "What's on the menu today? ",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Would love a large Pepperoni please!",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Order Pizza!",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "I feel like eating some pizza",
+    "exampleEntities" : [ ]
+  } ]
+}

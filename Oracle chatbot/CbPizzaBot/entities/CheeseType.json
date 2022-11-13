@@ -1,0 +1,27 @@
+{
+  "name" : "CheeseType",
+  "type" : "ENUMVALUES",
+  "enumValues" : [ {
+    "canonicalName" : "Mozzarella",
+    "synonyms" : [ "Mozarela", "Mozzarela" ]
+  }, {
+    "canonicalName" : "Provolone",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Gouda",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "Cheddar",
+    "synonyms" : null
+  } ],
+  "namedEntityRuleParams" : [ ],
+  "multiValue" : false,
+  "fuzzyMatch" : false,
+  "promptForDisambiguation" : true,
+  "botPrompts" : [ {
+    "text" : "Please enter CheeseType",
+    "sequenceNr" : null
+  } ],
+  "validationRules" : [ ],
+  "compositeBagItems" : [ ]
+}

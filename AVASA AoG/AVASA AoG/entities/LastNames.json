@@ -1,0 +1,9 @@
+{
+  "id": "46ce07db-b7ad-4c49-8acc-def1e0553a0d",
+  "name": "LastNames",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": true,
+  "allowFuzzyExtraction": false
+}

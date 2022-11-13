@@ -1,0 +1,73 @@
+{
+  "id": "aa79c05c-8837-40a5-bad8-7016055bf3c6",
+  "parentId": "0ee74a13-d0a9-4e1b-a0a3-24215c9a6dd9",
+  "rootParentId": "0ee74a13-d0a9-4e1b-a0a3-24215c9a6dd9",
+  "name": "Gym_or_spa_Booking___custom",
+  "auto": true,
+  "contexts": [
+    "GymorspaBooking-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "GymorspaBooking.GymorspaBooking-custom",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "76b19dbd-94bf-4bb8-a42a-4eca062b97bd",
+          "required": true,
+          "dataType": "@sys.any",
+          "name": "any",
+          "value": "$any",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "For when?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        },
+        {
+          "id": "b05d7c55-84bb-4819-ae1e-6963562bc253",
+          "required": true,
+          "dataType": "@sys.time",
+          "name": "time",
+          "value": "$time",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "At what time?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "actions_intent_OPTION"
+    }
+  ]
+}

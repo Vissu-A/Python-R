@@ -1,0 +1,25 @@
+{
+  "settings" : {
+    "Multistage_Pipeline" : true,
+    "Verbose_Output" : false,
+    "Result_Size" : 10,
+    "Pipeline_Output_Size" : 100,
+    "botConfig" : [ {
+      "displayName" : "Confidence threshold",
+      "name" : "system.intentConfidenceThreshold",
+      "description" : "The minimum confidence score required to match a skill's intent with user input. If there is no match, the transition action is set to 'unresolvedIntent'.(Minimum value 0, maximum value 1)",
+      "type" : "float",
+      "value" : 0.5
+    }, {
+      "displayName" : "Confidence Win Margin",
+      "name" : "system.intentConfidenceWinMargin",
+      "description" : "Only the top intent that exceeds the confidence threshold is picked if its confidence score exceeds that of other intents by this value or more. If other intents that exceed the confidence threshold have scores that are within that of the top intent by less than the win margin, these intents are also presented to the user. (Minimum value 0, maximum value 1)",
+      "type" : "float",
+      "value" : 0
+    } ]
+  },
+  "conversationHistoryEnabled" : false,
+  "insightsEnabled" : false,
+  "intentResultHistoryEnabled" : false,
+  "qnAResultHistoryEnabled" : false
+}

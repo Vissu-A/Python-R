@@ -1,0 +1,50 @@
+[
+  {
+    "id": "825da5b8-c08d-40d2-a622-6608ce5f247a",
+    "data": [
+      {
+        "text": "Know about my room",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "8e267446-99c6-42fd-bd00-87ab3fa61e5b",
+    "data": [
+      {
+        "text": "Room information please",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "76694860-271e-4075-9056-8cea114cb9cb",
+    "data": [
+      {
+        "text": "room info",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "b50b09ba-0d7d-4215-9f2f-26e312d3defc",
+    "data": [
+      {
+        "text": "room information",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

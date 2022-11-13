@@ -1,0 +1,37 @@
+{
+  "id": "9a764773-7318-40b4-b6af-927f1c25c7e5",
+  "parentId": "19e5b463-7329-4188-a96a-a315d333cca2",
+  "rootParentId": "19e5b463-7329-4188-a96a-a315d333cca2",
+  "name": "RoomInfoIntent - custom",
+  "auto": true,
+  "contexts": [
+    "RoomInfoIntent-followup",
+    "guest-info"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "RoomInfoIntent.RoomInfoIntent-custom",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "actions_intent_OPTION"
+    }
+  ]
+}

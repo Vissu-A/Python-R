@@ -1,0 +1,55 @@
+{
+  "id": "8189efcc-dbca-4c33-a73c-1145937a2357",
+  "name": "ExtendStayIntent",
+  "auto": true,
+  "contexts": [
+    "guest-info"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "extend_stay",
+      "affectedContexts": [
+        {
+          "name": "guest-info",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [
+        {
+          "id": "684f3b31-96d4-44dc-b2d0-ef2730619d9e",
+          "required": true,
+          "dataType": "@sys.duration",
+          "name": "extension_duration",
+          "value": "$extension_duration",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "specify number of days of extension"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

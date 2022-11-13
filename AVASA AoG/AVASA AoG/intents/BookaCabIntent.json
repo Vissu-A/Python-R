@@ -1,0 +1,67 @@
+{
+  "id": "499d3fa5-44e9-4678-95f9-dbd180c8fc6d",
+  "name": "BookaCabIntent",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "fa711eec-ed51-42a9-ab9b-a939fb1a8986",
+          "required": true,
+          "dataType": "@sys.any",
+          "name": "source",
+          "value": "$source",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "From which place?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        },
+        {
+          "id": "eb3ef8e0-4223-4a13-85b2-a8eee952dcdd",
+          "required": true,
+          "dataType": "@sys.date-time",
+          "name": "pickupdateTime",
+          "value": "$pickupdateTime",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "When should we pick you up?"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": "simple_response",
+          "platform": "google",
+          "lang": "en",
+          "textToSpeech": "The pickup has been arranged as requested.",
+          "ssml": "",
+          "displayText": ""
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

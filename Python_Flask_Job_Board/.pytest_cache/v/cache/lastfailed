@@ -1,0 +1,7 @@
+{
+  "tests/test_module2.py::test_add_bulma_css_framework_module2": true,
+  "tests/test_module2.py::test_add_custom_css_module2": true,
+  "tests/test_module2.py::test_add_fontawesome_module2": true,
+  "tests/test_module2.py::test_extend_base_template_module2": true,
+  "tests/test_module2.py::test_layout_template_module2": true
+}

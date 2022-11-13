@@ -1,0 +1,63 @@
+{
+  "id": "468f4e0d-b40e-41ee-a6ee-7129b92c0c9e",
+  "name": "HouseKeepingIntent",
+  "auto": true,
+  "contexts": [
+    "guest-info"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "send_message",
+      "affectedContexts": [
+        {
+          "name": "guest-info",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [
+        {
+          "id": "8064d258-f61f-47f7-b478-bb6bf9990358",
+          "required": true,
+          "dataType": "@housekeepingItems",
+          "name": "housekeepingItems",
+          "value": "$housekeepingItems",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "specify your request"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": "simple_response",
+          "platform": "google",
+          "lang": "en",
+          "textToSpeech": "Request placed. Someone from Housekeeping would be there with the dental kit in around 5 minutes.",
+          "ssml": "",
+          "displayText": ""
+        },
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

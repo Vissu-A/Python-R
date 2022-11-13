@@ -1,0 +1,1369 @@
+#metadata: information about the flow
+#  platformVersion: the version of the bots platform that this flow was written to work with 
+metadata:
+  platformVersion: "1.0"
+main: true
+name: DentalCare
+#context: Define the variables which will used throughout the dialog flow here.
+context:
+  variables:
+    iResult: "nlpresult"
+    name: "string"
+    email: "string"
+    appointmentDate: "DATE"
+    appointmentTime: "TIME"
+    dateEntity: "DATE"
+    dateEntity1: "DATE"
+    nameInput: "string"
+    phoneInput: "NUMBER"
+    mailInput: "string"
+    mailEntity: "EMAIL"
+    appointmentDate1: "DATE"
+    appointmentTime1: "string"
+    timeEntity: "TIME"
+    firstName: "string"
+    LastName: "string" 
+    emailId: "string" 
+    mobile: "string" 
+    appointmentDates: "string"
+    appointment: "string"
+    payment: "string"
+    amount: "string"
+    userName: "string"
+    #rateus variables
+    starbars: "string"
+    rating: "int"
+    rangeSize: "int"
+    rangeStart: "int"
+    starArraySize: "int"
+#states is where you can define the various states within your flow.
+# The syntax for defining a state is
+# statename:
+#   component:Specify the component you want to use. This can be either a Built-In or custom component.
+#   properties:
+#     property1: "value" (These are the properties to the specified component
+#   transitions: You can specify one of the following four
+#     next: Specify the state you want to execute next after this state. By default it will execute the state specified after this
+#     error: Specify the state you want to execute in case the component encounters any error in execution.
+#     actions: You can handle various actions returned by the components here the syntax is actionName: "statename"
+#        action1: state1
+#     return: "done" You can exit the flow using the return statement
+defaultTransitions:
+  error: "DefaultErrorHandler"
+  actions:
+    unexpectedAction: "HandleUnexpectedAction"
+states:
+  setRangeSize:
+    component: "System.SetVariable"
+    properties:
+      variable: "rangeSize"
+      value: 5 
+
+  setRangeStart:
+    component: "System.SetVariable"
+    properties:
+      variable: "rangeStart"
+      value: 0     
+
+  #stars are displayed using UTF-8 characters
+  setStarRating:
+    component: "System.SetVariable"
+    properties:
+      variable: "starbars"
+      value: 
+       - label: "\u2606 \u2606 \u2606 \u2606 \u2605"
+         rating: 1
+       - label: "\u2606 \u2606 \u2606 \u2605 \u2605"
+         rating: 2
+       - label: "\u2606 \u2606 \u2605 \u2605 \u2605"
+         rating: 3
+       - label: "\u2606 \u2605 \u2605 \u2605 \u2605"
+         rating: 4
+       - label: "\u2605 \u2605 \u2605 \u2605 \u2605"
+         rating: 5
+
+  setStarArraySize:
+    component: "System.SetVariable"
+    properties:
+      variable: "starArraySize"
+      value: "${starbars.value?size}"
+  Intent:
+    component: "System.Intent"
+    properties:
+      variable: "iResult"
+    transitions:
+      actions:
+        unresolvedIntent: "Unresolved"
+        Welcome: "Welcome"
+        ChatBot: "ChatBot"
+        AboutServices: "AskAboutServices"
+        CosmeticDentistry: "CosmeticDentistry"
+        EmergencyDentistry: "EmergencyDentistry"
+        FamilyDentistry: "FamilyDentistry"
+        ToothColorFillings: "ToothColorFillings"
+        Bonding: "Bonding"
+        MakeAnAppointment: "MakeAppointment"
+        MedicareForKids: "MedicareForKids"
+        Crowns: "CrownsBridgesAndVeneers"
+        Bridges: "CrownsBridgesAndVeneers"
+        Veneers: "CrownsBridgesAndVeneers"
+        MakeAppointmentDate: "MakeAppointmentDate"
+        BookOnline: "onlineService"
+        Rating: "rateUs"
+        #Phone the Office: "PhoneTheOffice"
+        #Book ONLINE: "BookOnline"
+        #textReceived: "Intent"
+  Unresolved:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Sorry, we did not seem to find what you asking for, I am not human. The closest\
+            \ we can come up with are"
+          name: "Sorry"
+          separateBubbles: true
+          actions:
+          - label: "Cosmetic Dentistry"
+            keyword: "1"
+            type: "postback"
+            payload:
+              action: "cosmeticdentistry"
+            name: "Cosmetic Dentistry"
+          - label: "Emergency Dentistry"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "emergencydentistry"
+            name: "Emergency Dentistry"
+          - label: "Family Dentistry"
+            keyword: "3"
+            type: "postback"
+            payload:
+              action: "familydentistry"
+            name: "Family Dentistry"  
+      processUserMessage: true
+    transitions:
+      actions:
+        cosmeticdentistry: "CosmeticDentistry"
+        emergencydentistry: "EmergencyDentistry"
+        familydentistry: "FamilyDentistry"
+        textReceived: "Intent"
+  Welcome:
+    component: "System.CommonResponse"
+    properties:
+      variable:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Hello ${profile.firstName}, Please choose an option below - We answer\
+            \ the phone 7 days a week from 6am to 9pm Otherwise you can book with us After Hours if you Book ONLINE."
+          name: "hello"
+          separateBubbles: false
+          actions:
+          - label: "ChatBot"
+            keyword: "1"
+            type: "postback"
+            payload:
+              action: "chatbot"
+            name: "ChatBot"
+          #- label: "Phone the Office"
+            #keyword: "2"
+            #type: "call"
+            #payload:
+              #phoneNumber: "9866243649"
+            #name: "Phone The Office"
+          - label: "Book ONLINE"
+            keyword: "3"
+            #type: "url"
+            type: "postback"
+            payload:
+              #url: "https://www.stardentalport.com/appointments/"
+              action: "onlineService"
+            name: "Book Online"  
+      processUserMessage: true
+    transitions:
+      actions:
+        chatbot: "ChatBot"
+        onlineService: "onlineService"
+        textReceived: "Intent"
+  ChatBot:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Hello ${profile.firstName},  Welcome  to the Test Dental ChatBot\ 
+            \ Our Automated Dental  Assistant includes VIDEOS and may be best viewed in Landscape mode with your phone held sideways.\
+            
+            
+            \ What would you like to do ?"
+          name: "hello"
+          separateBubbles: true
+          actions:
+          - label: "Make Appointment"
+            keyword: "1"
+            type: "postback"
+            payload:
+              action: "makeappointment"
+            name: "Make Appointment"
+          - label: "Get Directions"
+            keyword: "2"
+            type: "url"
+            payload:
+              url: "https://www.google.com.au/maps/dir//Star+Dental+Care,+61+Lord+St,+Port+Macquarie+NSW+2444,+Australia/@-31.4361489,152.8472748,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x6b9dff2c5bb00e5f:0x1ff083a2100ff277!2m2!1d152.917315!2d-31.436168"
+            name: "Get Directions"
+          - label: "Ask About Services"
+            keyword: "3"
+            type: "postback"
+            payload:
+              action: "aboutServices"
+            name: "Ask About Services"  
+      processUserMessage: true
+    transitions:
+      actions:
+        makeappointment: "MakeAppointment"
+        aboutServices: "AskAboutServices"
+        unexpectedAction: "HandleUnexpectedAction"
+        textReceived: "Intent"
+  MakeAppointment:
+    component: "System.Text"
+    properties:
+      prompt: "Please enter appointment date 'YYYY-MM-DD' format"
+      variable: "appointmentDate1"
+    transitions: {}
+  askAppName:
+    component: "System.Text"
+    properties:
+      prompt: "Please provide name:"
+      variable: "nameInput"
+    transitions: {}  
+  askAppPhone:
+    component: "System.Text"
+    properties:
+      prompt: "Please provide valid phone number:"
+      variable: "phoneInput"
+    transitions: {}      
+  askAppEmail:
+    component: "System.Text"
+    properties:
+      prompt: "Please provide a valid email address"
+      variable: "mailInput"
+    transitions: {}
+  mailAppMatchEntity:
+    component: "System.MatchEntity"
+    properties:
+      sourceVariable: "mailInput"
+      variable: "mailEntity"
+    transitions:
+      actions:
+        match: "confirmAppointment"
+        nomatch: "notmatch"
+  notmatch:
+    component: "System.Output"
+    properties:
+      text: "All I wanted was a valid email address."
+    transitions: {}  
+  confirmAppointment:
+    component: "System.Output"
+    properties:
+      text: "Your appointment is confirmed on ${appointmentDate1.value.date?long?number_to_date?string.short}\
+        \ Plese find the reference number: ${appointmentDate1.value.date?long}. Thank you"
+    transitions: {}
+  AskAboutServices:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "What Services do you want to ask about?"
+          name: "services"
+          separateBubbles: true
+          actions:
+          - label: "Cosmetic Dentistry"
+            keyword: "1"
+            type: "postback"
+            payload:
+              action: "cosmeticdentistry"
+            name: "Cosmetic Dentistry"
+          - label: "Emergency Dentistry"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "emergencydentistry"
+            name: "Emergency Dentistry"
+          - label: "Family Dentistry"
+            keyword: "3"
+            type: "postback"
+            payload:
+              action: "familydentistry"
+            name: "Family Dentistry"  
+      processUserMessage: true
+    transitions:
+      actions:
+        cosmeticdentistry: "CosmeticDentistry"
+        emergencydentistry: "EmergencyDentistry"
+        familydentistry: "FamilyDentistry"
+        textReceived: "Intent"
+  CosmeticDentistry:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Which of the following Cosmetic Services do you want to ask about ?"
+          name: "cosmetic"
+          separateBubbles: true
+          actions:
+          - label: "Crowns and Veneers"
+            keyword: "1"
+            type: "postback"
+            payload:
+              action: "crownsandveneers"
+            name: "Crowns and Veneers"
+          - label: "Tooth Whitening"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "toothwhitening"
+            name: "Tooth Whitening"
+          - label: "Tooth Color Fillings"
+            keyword: "3"
+            type: "postback"
+            payload:
+              action: "toothcolorfillings"
+            name: "Tooth Color Fillings"  
+      processUserMessage: true
+    transitions:
+      actions:
+        crownsandveneers: "CrownsAndVeneers"
+        toothwhitening: "ToothWhitening"
+        toothcolorfillings: "ToothColorFillings"
+        textReceived: "Intent"
+  EmergencyDentistry:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "If you have a toothache or a rotten tooth, you may need emergency treatment - What Emergency Services do you need ?"
+          name: "emergency"
+          separateBubbles: true
+          actions:
+          - label: "Toothache Extraction"
+            keyword: "1"
+            type: "postback"
+            payload:
+              action: "toothacheextraction"
+            name: "Toothache Extraction"
+          - label: "Wisdom Tooth Pain"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "Wisdomtoothpain"
+            name: "Wisdom Tooth Pain"
+          - label: "Root Canal Filling"
+            keyword: "3"
+            type: "postback"
+            payload:
+              action: "rootcanalfilling"
+            name: "Root Canal Filling"  
+      processUserMessage: true
+    transitions:
+      actions:
+        toothacheextraction: "ToothacheExtraction"
+        Wisdomtoothpain: "WisdomToothPain"
+        rootcanalfilling: "RootCanalFilling"
+        textReceived: "Intent"
+  FamilyDentistry:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "What Family Dental Services do you want to know about ?"
+          name: "family"
+          separateBubbles: true
+          actions:
+          - label: "Checkup or Cleaning"
+            keyword: "1"
+            type: "postback"
+            payload:
+              action: "checkuporcleaning"
+            name: "Checkup or Cleaning"
+          - label: "Teeth Whitening"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "teethwhitening"
+            name: "Teeth Whitening"
+          - label: "Medicare For KIDS"
+            keyword: "3"
+            type: "postback"
+            payload:
+              action: "medicareforkids"
+            name: "Medicare For KIDS"  
+      processUserMessage: true
+    transitions:
+      actions:
+        checkuporcleaning: "CheckupOrCleaning"
+        teethwhitening: "TeethWhitening"
+        medicareforkids: "MedicareForKids"
+        textReceived: "Intent"
+  CrownsAndVeneers:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "OK ${profile.firstName}, Nearly there ! Just choose either CROWNS,  BRIDGES or VENEERS"
+          name: "crowns"
+          separateBubbles: true
+          actions:
+          - label: "Crowns (Caps)"
+            keyword: "1"
+            type: "postback"
+            payload:
+              action: "crowns"
+            name: "Crowns"
+          - label: "Bridges"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "bridges"
+            name: "Bridges"
+          - label: "Veneers"
+            keyword: "3"
+            type: "postback"
+            payload:
+              action: "veneers"
+            name: "Veneers"  
+      processUserMessage: true
+    transitions:
+      actions:
+        crowns: "Crowns"
+        bridges: "Bridges"
+        veneers: "Veneers"
+        textReceived: "Intent"
+  CrownsBridgesAndVeneers:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Please choose CROWNS,  BRIDGES or VENEERS"
+          separateBubbles: true
+          actions:
+          - label: "Crowns"
+            keyword: "1"
+            type: "postback"
+            payload:
+              action: "crowns"
+          - label: "Bridges"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "bridges"
+          - label: "Veneers"
+            keyword: "3"
+            type: "postback"
+            payload:
+              action: "veneers" 
+      processUserMessage: true
+    transitions:
+      actions:
+        crowns: "Crowns"
+        bridges: "Bridges"
+        veneers: "Veneers"
+        textReceived: "Intent"      
+  ToothWhitening:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "attachment"
+          attachmentType: "image"
+          name: "image"
+          attachmentUrl: "http://drperrone.com/blog/wp-content/uploads/2012/06/Gotchoo-teeth-deal.jpg"
+        - type: "text"
+          text: "Watch the Video below; then make a selection What would you like to do ?"
+          name: "toothwhitening"
+          separateBubbles: true
+          actions:
+          - label: "Try Whitening APP"
+            keyword: "1"
+            type: "url"
+            payload:
+              url: "https://www.stardentalport.com/our-services/home-teeth-whitening/"
+            name: "Try Whitening APP"
+          - label: "See Website Videos"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "seewebsitevideos"
+            name: "See Website Videos"
+          - label: "Book a Visit"
+            keyword: "3"
+            type: "postback"
+            payload:
+              action: "bookavisit"
+            name: "Book a Visit"
+        - type: "attachment"
+          attachmentType: "video"
+          attachmentUrl: "https://www.youtube.com/watch?v=9bbGAFoNhkA"  
+          #separateBubbles: true    
+      processUserMessage: true
+    transitions:
+      actions:
+        #trywhiteningapp: "TryWhiteningAPP"
+        seewebsitevideos: "SeeWebsiteVideos"
+        #bookavisit: "BookVisit"
+        textReceived: "Intent"
+  SeeWebsiteVideos:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Watch the VIDEO below and then open the website to learn more about Whitening"
+          name: "websitevideos"
+          separateBubbles: true
+          actions:
+          - label: "Open Webpage"
+            keyword: "1"
+            type: "url"
+            payload:
+              url: "https://www.stardentalport.com/our-services/home-teeth-whitening/"
+            name: "Open Webpage"
+          - label: "Make An Appointment"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "makeanappointment"
+            name: "Bonding"
+          - label: "Open Whitening Chat"
+            keyword: "3"
+            type: "url"
+            payload:
+              url: "https://www.messenger.com/t/TeethWhiteningatPort"
+            name: "Whitening Chat"
+        - type: "attachment"
+          attachmentType: "video"
+          name: "whitening"
+          attachmentUrl: "https://youtu.be/ybnHciKnE6E"     
+      processUserMessage: true
+    transitions:
+      actions:
+        makeanappointment: "MakeAppointment"
+        textReceived: "Intent"      
+  ToothColorFillings:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Which Tooth Coloured services do you want to ask about ?"
+          name: "toothcolorfillings"
+          separateBubbles: true
+          actions:
+          - label: "Tooth Color Fillings"
+            keyword: "1"
+            type: "postback"
+            payload:
+              action: "toothcolorfilling"
+            name: "Tooth Color Fillings"
+          - label: "Bonding"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "bonding"
+            name: "Bonding"
+          - label: "StartOver"
+            keyword: "3"
+            type: "postback"
+            payload:
+              action: "startover"
+            name: "StartOver"  
+      processUserMessage: true
+    transitions:
+      actions:
+        toothcolorfilling: "ToothColorFilling"
+        bonding: "Bonding"
+        startover: "AskAboutServices"
+        textReceived: "Intent"
+  ToothColorFilling:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Watch the Video below first.\
+            \ Tooth Coloured fillings can be used to quickly repair decayed or chipped teeth.
+            \ Costs typically range between $80 and $280 depending on the size of the cavity, because bigger cavities take longer to fix"
+          name: "toothcolorfilling"  
+          actions:
+          - label: "Make An Appointment"
+            keyword: "1"
+            type: "postback"
+            payload:
+              action: "makeanappointment"
+          - label: "StartOver"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "startover"  
+      processUserMessage: true
+    transitions:
+      actions:
+        makeanappointment: "MakeAppointment"
+        startover: "AskAboutServices"
+        textReceived: "Intent"
+  Bonding:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Tooth Coloured Bonding is used to repair more complex cavities and severely cracked teeth.\
+            \ Costs typically range between $165 and $365 depending on the size of the cavity"
+          name: "toothcolorfilling"  
+          separateBubbles: true
+          actions:
+          - label: "Make An Appointment"
+            keyword: "1"
+            type: "postback"
+            payload:
+              action: "makeanappointment"
+            name: "Make An Appointment"
+          - label: "StartOver"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "startover"
+            name: "StartOver"
+        - type: "attachment"
+          attachmentType: "video"
+          name: "video"
+          attachmentUrl: "https://youtu.be/MyPxbrnkLMk"   
+      processUserMessage: true
+    transitions:
+      actions:
+        makeanappointment: "MakeAppointment"
+        startover: "AskAboutServices"
+        textReceived: "Intent"
+  Crowns:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Watch the  VIDEO on Dental Crowns then return to Messenger"
+          name: "Crowns"  
+          separateBubbles: true
+        - type: "attachment"
+          attachmentType: "video"
+          name: "Watch The VIDEO"
+          attachmentUrl: "https://youtu.be/WLDn4AU9Dm8"
+          #separateBubbles: true
+        - type: "text"
+          text: "If your new crown is going on a back tooth and won't show when you are smiling then you\
+             \ might want a strong gold crown for $1200 but for a tooth that shows when you smile we recommend a tooth coloured 
+             \ crown for $1650 and your Health Insurance Fund will pay up to about half the cost."
+          name: "Crowns1"  
+          #separateBubbles: true
+        - type: "text"
+          text: "Dental Crowns, sometimes known as Caps, are a full coverage restoration used to build up teeth\
+            \ that have been broken down, heavily filled or weakened by root canal treatment.  They are made in a 
+            \ two visit procedure with the tooth being prepared at the first appointment and covered with a trial crown 
+            \ so you can check the shape and colour for the final permanent crown. At the second visit you will have your new Smile.
+            \ Watch the Video then to learn more visit our webpage at"
+          name: "Crowns2"  
+        - type: "text"
+          text: "http://www.stardentalport.com/our-services/dental-crowns/"
+          name: "Crowns3"
+        - type: "text"
+          text: "Would you like to make an Appointment ?"
+          name: "Crowns4"
+          actions:
+          - label: "Yes"
+            keyword: "1"
+            type: "postback"
+            payload:
+              action: "yescrowns"
+            name: "Yes Crowns"
+          - label: "Not Yet"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "notyetcrowns"
+            name: "NotYet Crowns"
+          - label: "Start Over"
+            keyword: "3"
+            type: "postback"
+            payload:
+              action: "startover"
+            name: "StartOver"
+      processUserMessage: true
+    transitions:
+      actions:
+        yescrowns: "Yes"
+        notyetcrowns: "NotYet"
+        startover: "AskAboutServices"
+        textReceived: "Intent"
+  Bridges:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Dental Bridges, are fixed dental appliances that are used to replace just one or a few missing teeth.\
+            \ The bridge sits on crowns on the supporting teeth (abutments) and the crowns are joined with a pontic that replaces the missing teeth.  
+            \ If you don not like your partial denture you should consider a bridge.
+            \ Watch the Video below; then to learn more visit our webpage at;"
+          name: "Crowns1"  
+          separateBubbles: true
+        - type: "text"
+          text: "http://www.stardentalport.com/our-services/dental-bridges/"  
+        - type: "text"
+          text: "Would you like to make an Appointment ?"
+          actions:
+          - label: "YES"
+            keyword: "1"
+            type: "postback"
+            payload:
+              action: "yescrowns"
+          - label: "Not Yet"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "notyetcrowns"
+          - label: "Start Over"
+            keyword: "3"
+            type: "postback"
+            payload:
+              action: "startover"
+        - type: "attachment"
+          attachmentType: "video"
+          name: "Watch The VIDEO"
+          attachmentUrl: "https://youtu.be/PpEvrlc-sCY"    
+      processUserMessage: true
+    transitions:
+      actions:
+        yescrowns: "Yes"
+        notyetcrowns: "NotYet"
+        startover: "AskAboutServices"
+        textReceived: "Intent"
+  Veneers:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Cosmetic Veneers are thin coverings used to reshape crooked teeth, hide chipped or discoloured teeth\
+            \ and will  rejuvenate your face to create a beautiful Hollywood Smile. Porcelain Veneers get less expensive the 
+            \ more you have and cost from $630 each for a smile makeover of eight teeth  (total $5,000) to $850 for a single unit Porcelain Veneer 
+            \ Watch the Video below, then to learn more visit our Veneers Webpage at;"  
+          separateBubbles: true
+        - type: "text"
+          text: "http://www.stardentalport.com/our-services/dental-porcelain-veneers/"  
+        - type: "text"
+          text: "Would you like to make an Appointment ?"
+          actions:
+          - label: "YES"
+            keyword: "1"
+            type: "postback"
+            payload:
+              action: "yescrowns"
+          - label: "Not Yet"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "notyetcrowns"
+          - label: "Start Over"
+            keyword: "3"
+            type: "postback"
+            payload:
+              action: "startover"
+        - type: "attachment"
+          attachmentType: "video"
+          name: "Watch The VIDEO"
+          attachmentUrl: "https://youtu.be/nBnrsUu_wm4"           
+      processUserMessage: true
+    transitions:
+      actions:
+        yescrowns: "Yes"
+        notyetcrowns: "NotYet"
+        startover: "AskAboutServices"
+        textReceived: "Intent"      
+  ToothacheExtraction:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "A toothache can be a terrible interference to your life - Fortunately we can see most emergency\
+            \ toothache patients on the same day that they phone - Tooth extractions cost from $200, 
+            \ a small amount to be free of your pain. We answer the phone from 6 am"
+        - type: "text"
+          text: "Watch the Video below; then to learn more visit our webpage at;"
+        - type: "text"
+          text: "http://www.stardentalport.com/our-services/tooth-extraction/"
+        - type: "text"
+          text: "Would you like to phone the Office  NOW ?"
+          separateBubbles: true
+          actions:
+          - label: "Yes Phone NOW!"
+            keyword: "1"
+            type: "call"
+            payload:
+              phoneNumber: "9866243649"
+            name: "YesPhone"
+          - label: "Start Over"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "startover"
+            name: "startache"
+        - type: "attachment"
+          attachmentType: "video"
+          name: "Watch The VIDEO"
+          attachmentUrl: "https://www.youtube.com/watch?v=WLDn4AU9Dm8"    
+      processUserMessage: true
+    transitions:
+      actions:
+        startover: "AskAboutServices"
+        textReceived: "Intent"
+  WisdomToothPain:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Pain from a Wisdom tooth can be terrible but fortunately at Star Dental\ 
+            \ we offer a variety of SAME DAY pain control solutions. DOWNLOAD the Mouthwash Instructions below and 
+            \ follow the routine that may quickly   relieve your wisdom tooth pain. Alternately we may be able to 
+            \ remove the Wisdom Tooth in our office for as little as $200 without any need for the expensive alternative  
+            \ option of a stay in hospital for removal by a specialist surgeon."
+        - type: "text"
+          text: "Watch the Video below; then to learn more visit our webpage at;"
+        - type: "text"
+          text: "http://www.stardentalport.com/our-services/wisdom-teeth-extraction/"
+        - type: "text"
+          text: "Would you like to phone the Office  NOW ?"
+          separateBubbles: true
+          actions:
+          - label: "Yes Phone NOW!"
+            keyword: "1"
+            type: "call"
+            payload:
+              phoneNumber: "9866243649"
+            name: "YesPhone"
+          - label: "Start Over"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "startover"
+            name: "startache"
+          #separateBubbles: true
+          - label: "Mouthwash_Instructions.pdf"
+            type: "url"
+            payload:
+              url: "https://l.messenger.com/l.php?u=https%3A%2F%2Fcdn.fbsbx.com%2Fv%2Ft59.2708-21%2F25429080_881363045377676_720708813782515712_n.pdf%2FMouthwash_Instructions.pdf%3F_nc_cat%3D0%26oh%3D39ff465e7a91dd78c1bd4f2da4f552d1%26oe%3D5B93DC39%26dl%3D1&h=AT1-pFvRzZHI0K0xl10Y1rUDCaA5BoYCYQRdPkEHP2Uo0MKKmTkjFWSa0looHTGa6obndlPF3xIG-UArfavVnqL2nuEhIOpuIt6Pu5dv5QmI_s4Tpcxn9Wc46n_vaUwi-AxJyZckTdVbLbMXcKpIWLu4rfA" 
+        - type: "attachment"
+          attachmentType: "video"
+          name: "Watch The VIDEO"
+          attachmentUrl: "https://www.youtube.com/watch?v=WLDn4AU9Dm8"   
+      processUserMessage: true
+    transitions:
+      actions:
+        startover: "AskAboutServices"
+        textReceived: "Intent"
+  RootCanalFilling:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Root Canal treatment can quickly remove the pain from a tooth when the nerve is dead or dying\
+            \ which is often why the tooth will develop an abscess. At Star Dental we are experts at root canal treatments. 
+            \ The cost of root canal filling depends on how many canals need filling - more canals means more cost. 
+            \ We answer the phone from 6am and can often see patients on the same day to get them out of pain and start work 
+            \ on a  painful tooth that you want to save"
+        - type: "text"
+          text: "Watch the Video below; then to learn more visit our webpage at;"
+        - type: "text"
+          text: "http://www.stardentalport.com/our-services/root-canal-port-macquarie/"
+        - type: "text"
+          text: "Would you like to make an appointment   ?"
+          separateBubbles: true
+          actions:
+          - label: "Yes Book now"
+            keyword: "1"
+            type: "postback"
+            payload:
+              action: "yesbooknow"
+            name: "YesBook"
+          - label: "Not Yet"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "notyet"
+            name: "notyetroot"  
+          - label: "Start Over"
+            keyword: "3"
+            type: "postback"
+            payload:
+              action: "startoverfromroot"
+            name: "startroot"
+        - type: "attachment"
+          attachmentType: "video"
+          name: "Watch The VIDEO"
+          attachmentUrl: "https://www.youtube.com/watch?v=WLDn4AU9Dm8"   
+      processUserMessage: true
+    transitions:
+      actions:
+        yesbooknow: "Yes"
+        notyet: "NotYet"
+        startoverfromroot: "AskAboutServices"
+        textReceived: "Intent"
+  CheckupOrCleaning:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Dental Checkups and/or Cleaning and Polishing teeth is an essential part of dental and general health\
+            \ and essential for a beautiful healthy smile and fresh breath."
+        - type: "text"    
+          text: "To learn more about Checkups watch the Video below; then visit our webpage at;"
+        - type: "text"  
+          text: "http://www.stardentalport.com/our-services/dental-checkups/"
+        - type: "text"  
+          text: "To learn more about Cleaning and Polishing teeth visit our webpage;"
+        - type: "text"  
+          text: "Would you like to make an Appointment ?"  
+          separateBubbles: false
+          actions:
+          - label: "Yes Make Appointment"
+            keyword: "1"
+            type: "postback"
+            payload:
+              action: "yesmakeappointment"
+          - label: "Not Yet"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "notyet"
+          - label: "Start Over"
+            keyword: "3"
+            type: "postback"
+            payload:
+              action: "startover"
+        - type: "attachment"
+          attachmentType: "video"
+          name: "Watch The VIDEO"
+          attachmentUrl: "https://www.youtube.com/watch?v=WLDn4AU9Dm8"
+        - type: "text"  
+          text: "A comprehensive teeth and soft tissue checkup with  scaling & cleaning and regular Oral Soft Tissue\
+            \ Cancer exam is just $165 - with most of our patients having their fees covered 100% by their Health Insurance Rebate"
+      processUserMessage: true
+    transitions:
+      actions:
+        yesmakeappointment: "Yes"
+        notyet: "NotYet"
+        startover: "AskAboutServices"
+        textReceived: "Intent"
+  TeethWhitening:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "At Star Dental we are THE local Experts in Tooth Whitening for our SPECIAL Price of just $150  - Watch the Video below then;"
+          separateBubbles: false
+          actions:
+          - label: "View Another VIDEO"
+            keyword: "1"
+            type: "postback"
+            payload:
+              action: "viewaanothervideo"
+          - label: "Visit our webpage"
+            keyword: "2"
+            type: "url"
+            payload:
+              url: "https://www.stardentalport.com/our-services/home-teeth-whitening/"
+          - label: "Book an Appointment"
+            keyword: "3"
+            type: "postback"
+            payload:
+              action: "bookappointment"
+        - type: "attachment"
+          attachmentType: "video"
+          name: "Watch The VIDEO"
+          attachmentUrl: "https://www.youtube.com/watch?v=WLDn4AU9Dm8"
+        - type: "text"  
+          text: "A comprehensive teeth and soft tissue checkup with  scaling & cleaning and regular Oral Soft Tissue\
+            \ Cancer exam is just $165 - with most of our patients having their fees covered 100% by their Health Insurance Rebate"
+      processUserMessage: true
+    transitions:
+      actions:
+        viewaanothervideo: "ViewAnotherVideo"
+        bookappointment: "MakeAppointment"
+        textReceived: "Intent"
+  ViewAnotherVideo:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Home Tooth Whitening is the quickest, cheapest and most reliable way of Whitening Your Smile -\
+            \ At Star Dental we are THE local experts in Tooth Whitening - Come in and have your Smile Whitened for only  $150
+            \ Watch the VIDEO below, then give us a call"
+          separateBubbles: false
+          actions:
+          - label: "Make an Appointment"
+            keyword: "1"
+            type: "postback"
+            payload:
+              action: "makeappointment"
+          - label: "Start Over"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "startover"
+        - type: "attachment"
+          attachmentType: "video"
+          attachmentUrl: "https://youtu.be/ybnHciKnE6E"
+      processUserMessage: true
+    transitions:
+      actions:
+        makeappointment: "MakeAppointment"
+        startover: "AskAboutServices"
+        textReceived: "Intent"
+  MedicareForKids:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "The Medicare Child Dental Benefit Scheme - CDBS - provides up to $1000 for eligible  KIDS dental care.\
+            \ Find out if your children aged between 1 and 18 years of age qualify by phoning the office with your Kids Medicare details  
+            \ Find out more by visiting our website;"
+        - type: "text"
+          text: "http://www.stardentalport.com/our-services/medicare-kids/"
+        - type: "text"
+          text: "Would you like to phone the Office to find out if your KIDS are eligible for the FREE BULK BILLED Dental treatment ?"   
+          separateBubbles: false
+          actions:
+          - label: "Make Appointment"
+            keyword: "1"
+            type: "postback"
+            payload:
+              action: "makeappointment"
+          - label: "Not Yet"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "notyet"    
+          - label: "Start Over"
+            keyword: "3"
+            type: "postback"
+            payload:
+              action: "startover"
+        - type: "attachment"
+          attachmentType: "image"
+          name: "image"
+          attachmentUrl: "https://scontent.xx.fbcdn.net/v/t1.15752-9/38181995_152477142262927_5767720970596909056_n.jpg?_nc_cat=0&_nc_ad=z-m&_nc_cid=0&oh=d77008bb59a60713aea28b4c733b5bea&oe=5C397986"
+      processUserMessage: true
+    transitions:
+      actions:
+        makeappointment: "MakeAppointment"
+        notyet: "NotYet"
+        startover: "AskAboutServices"
+        textReceived: "Intent"
+  onlineService:
+    component: "System.Interactive"
+    properties:
+      sourceVariableList: "firstName, LastName, emailId, mobile, appointmentDates"
+      variable: "appointment"
+      id: "Appointment_Form"
+      prompt: "Please tap on the below Appointment link to proceed."
+      linkLabel: "Appointment"
+      cancelLabel: 
+      translate: 
+    transitions:
+      actions:
+        cancel: "cancelInstantApp"
+      next: "instantAppOutput"
+  cancelInstantApp:
+    component: "System.Output"
+    properties:
+      text: "Hello ${profile.lastName}. You clicked on Cacel button? Please try again"
+    transitions:
+      return: "done"    
+# Use the callback payload data
+  instantAppOutput:
+    component: "System.Output"
+    properties:
+      text: "Hello ${appointment.value.FirstName} your appointment is confirmed \
+        \ on ${appointment.value.date_1}"
+      keepTurn: false  
+    transitions: {}  
+  MakeAppointmentDate:
+    component: "System.SetVariable"
+    properties:
+      variable: "appointmentDate"
+      value: "${iResult.value.entityMatches['DATE'][0]}"
+  appointmentTime:
+    component: "System.SetVariable"
+    properties:
+      variable: "appointmentTime"
+      value: "${iResult.value.entityMatches['TIME'][0]}"
+  setAmount:
+    component: "System.SetVariable"
+    properties:
+      variable: "amount"
+      value: "$60"
+    transitions: {}
+  setName:
+    component: "System.SetVariable"
+    properties:
+      variable: "userName"
+      value: "${profile.firstName} ${profile.lastName}"
+    transitions: {}    
+  askName:
+    component: "System.Text"
+    properties:
+      prompt: "Please provide name:"
+      variable: "nameInput"
+    transitions: {}  
+  askPhone:
+    component: "System.Text"
+    properties:
+      prompt: "Please provide valid phone number:"
+      variable: "phoneInput"
+    transitions: {}      
+  askEmail:
+    component: "System.Text"
+    properties:
+      prompt: "Please provide a valid email address"
+      variable: "mailInput"
+    transitions: {}
+  mailMatchEntity:
+    component: "System.MatchEntity"
+    properties:
+      sourceVariable: "mailInput"
+      variable: "mailEntity"
+    transitions:
+      actions:
+        match: "payment"
+        nomatch: "nomatch"
+  nomatch:
+    component: "System.Output"
+    properties:
+      text: "All I wanted was a valid email address."
+    transitions: {}    
+  payment:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"    
+          text: "Your appointment is confirmed on ${appointmentDate.value.date?long?number_to_date?string.short}\
+            \ Plese find the reference number: ${appointmentDate.value.date?long}. Thank you"
+        - type: "text"    
+          text: "Would you like to pay consultation fee now ?"  
+          separateBubbles: true
+          actions:
+          - label: "Yes"
+            keyword: "1"
+            type: "postback"
+            payload:
+              action: "payNow"
+          - label: "No"
+            keyword: "2"
+            type: "postback"
+            payload:
+              action: "notNow"
+      processUserMessage: true
+    transitions: 
+      actions:
+        payNow: "payNow"
+        notNow: "notNow"
+  payNow:
+    component: "System.Interactive"
+    properties:
+      sourceVariableList: "userName,amount"
+      variable: "payment"
+      id: "Payment_App"
+      prompt: "Please tap on the below Payment link to proceed."
+      linkLabel: "Pay"
+      cancelLabel: 
+      translate: 
+    transitions: {}
+  #paySuccess:
+    #component: "System.Output"
+    #properties:
+      #text: "Your payment is successful and reference number is ${payment.value.ReferenceNumber}"
+    #transitions: {}
+  #notNow:
+    #component: "System.Output"
+    #properties:
+      #text: "No problem."
+    #transitions: {}   
+  rateUs:
+    component: "System.CommonResponse"
+    properties:
+      processUserMessage: true
+      keepTurn: false
+      metadata: 
+        responseItems:
+        - type: "text"
+          text: "Your payment is successful and reference number is ${payment.value.ReferenceNumber}. \n
+            \ Please rate our services"
+          actions:          
+          - label: "${starbars.label}"
+            type: "postback"
+            # definition of short keys for alternative access. Pressing a number from 1 - 5 sets the star rating 
+            keyword: "${starbars.rating}"
+            rendered: "<#if starbars?index &lt; (rangeStart?number + rangeSize?number) && starbars?index &gt;= rangeStart?number>true<#else>false</#if>"            
+            payload: 
+              variables: 
+                rating: "${starbars.rating}" 
+            iteratorVariable: "starbars"              
+        globalActions:
+        - label: "Previous"
+          rendered: "<#if rangeStart?number &gt;= rangeSize?number>true<#else>false</#if>"
+          type: "postback"
+          keyword: 
+          payload: 
+            action: "prevRange"  
+            variables: 
+              rangeStart: "${rangeStart?number - rangeSize?number}"
+        - label: "Next"
+          rendered: "<#if (rangeStart?number + rangeSize?number) &lt;= starArraySize?number  && rangeSize?number &lt; starArraySize?number>true<#else>false</#if>"          
+          type: "postback"
+          keyword: 
+          payload: 
+            action: "nextRange"  
+            variables: 
+              rangeStart: "${rangeStart?number + rangeSize?number}"        
+    transitions: 
+      actions: 
+        nextRange: "rateUs"
+        prevRange: "rateUs"
+  printRating:
+    component: "System.Output"
+    properties:
+      text: "You gave us ${rating.value} stars. Thanks for rating our services."
+    transitions:
+      return: "done"
+  notNow:
+    component: "System.Output"
+    properties:
+      text: "No problem."
+    transitions: {}    
+  Yes:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "How would you like to book the appointment ?"
+          name: "Yes"  
+          separateBubbles: true
+          actions:
+          - label: "Phone The Office"
+            keyword: "1"
+            type: "call"
+            payload:
+              #action: "phonetheoffice"
+              phoneNumber: "9866243649"
+            name: "Phone The Office"
+          - label: "Request ONLINE"
+            keyword: "2"
+            type: "url"
+            payload:
+              #action: "onlinerequest"
+              url: "https://www.stardentalport.com/appointments/"
+            name: "REQUEST Online"
+      processUserMessage: false
+    transitions: {}
+  NotYet:
+    component: "System.CommonResponse"
+    properties:
+      metadata:
+        responseItems:
+        - type: "text"
+          text: "Not a problem, but be sure to visit our informative Website  to learn more about the exciting range of services that we provide"
+          name: "NotYet"  
+          separateBubbles: true
+          actions:
+          - label: "Visit the Website"
+            keyword: "1"
+            type: "url"
+            payload:
+              url: "https://www.stardentalport.com/our-services/"
+            name: "Visit the Website"
+      processUserMessage: false
+    transitions: {}  
+  HandleUnexpectedAction:
+    component: "System.Switch"
+    properties:
+      variable: "system.unexpectedAction"
+      values:
+      - "chatbot"
+      - "makeappointment"
+      - "cosmeticdentistry"
+      - "emergencydentistry"
+      - "familydentistry"
+      - "aboutServices"
+      - "crownsandveneers"
+      - "crowns"
+      - "bridges"
+      - "veneers"
+      - "toothwhitening"
+      - "toothcolorfillings"
+      - "toothacheextraction"
+      - "wisdomtoothpain"
+      - "rootcanalfilling"
+      - "checkuporcleaning"
+      - "teethwhitening"
+      - "medicareforkids"
+      - "onlineService"
+      - "welcome"
+    transitions:
+      actions:
+        NONE: "ActionNoLongerAvailable"
+        makeappointment: "MakeAppointment"
+        aboutServices: "AskAboutServices"
+        cosmeticdentistry: "CosmeticDentistry"
+        emergencydentistry: "EmergencyDentistry"
+        familydentistry: "FamilyDentistry"
+        crownsandveneers: "CrownsAndVeneers"
+        chatbot: "ChatBot"
+        crowns: "Crowns"
+        bridges: "Bridges"
+        veneers: "Veneers"
+        toothwhitening: "ToothWhitening"
+        toothcolorfillings: "ToothColorFillings"
+        toothacheextraction: "ToothacheExtraction"
+        wisdomtoothpain: "WisdomToothPain"
+        rootcanalfilling: "RootCanalFilling"
+        checkuporcleaning: "CheckupOrCleaning"
+        teethwhitening: "TeethWhitening"
+        medicareforkids: "MedicareForKids"
+        onlineService: "onlineService"
+        welcome: "Welcome"
+  ActionNoLongerAvailable:
+    component: "System.Output"
+    properties:
+      text: "Sorry, this action ${system.unexpectedAction.value} is no longer available"
+    transitions:
+      return: "done"  
+  DefaultErrorHandler:
+    component: "System.Output"
+    properties:
+      text: "Unexpected error occurred, please contact the helpdesk"
+    transitions:
+      return: "done"

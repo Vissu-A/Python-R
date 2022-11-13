@@ -1,0 +1,26 @@
+[
+  {
+    "id": "e4f4b761-0851-42f1-8f38-c03bb9cdb3ed",
+    "data": [
+      {
+        "text": "cancel the gym booking",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "3ea2507f-5429-467b-8b8d-a21db2406760",
+    "data": [
+      {
+        "text": "cancel my gym booking",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

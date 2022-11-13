@@ -1,0 +1,132 @@
+import requests
+import bs4
+import pandas as pd
+
+review_titles = [];
+job_titles = [];
+job_locations = [];
+review_dates = [];
+review_description = [];
+pros = [];
+cons = [];
+
+urls = ["https://www.indeed.co.in/cmp/Anglo-American/reviews?fcountry=ALL&lang="]
+
+for i in range(20, 920, 20):
+    urls.append("https://www.indeed.co.in/cmp/Anglo-American/reviews?fcountry=ALL&start="+str(i))
+
+    
+def get_review_title(urls):
+    
+    for url in urls:
+            
+            yield [title.text.strip() for title in bs4.BeautifulSoup(requests.get(url).content,'html.parser').find_all("div", attrs={'class': 'cmp-review-title'})]
+    
+    
+def get_job_title(urls):
+    
+    for url in urls:
+        
+            yield [title.text.strip() for title in bs4.BeautifulSoup(requests.get(url).content,'html.parser').find_all("span", attrs={'class': 'cmp-reviewer'})]
+            
+            
+def get_job_location(urls):
+    
+    for url in urls:
+        
+            yield [title.text.strip() for title in bs4.BeautifulSoup(requests.get(url).content,'html.parser').find_all("span", attrs={'class': 'cmp-reviewer-job-location'})]
+            
+            
+def get_review_date(urls):
+    
+    for url in urls:
+        
+            yield [title.text.strip() for title in bs4.BeautifulSoup(requests.get(url).content,'html.parser').find_all("span", attrs={'class': 'cmp-review-date-created'})]
+
+def get_review_description(urls):
+    
+    for url in urls:
+        
+        yield [title.text.strip() for title in bs4.BeautifulSoup(requests.get(url).content,'html.parser').find_all("div", attrs={'class': 'cmp-review-description'})]
+
+
+def get_review_pros(urls):
+    
+     for url in urls:
+        page =  bs4.BeautifulSoup(requests.get(url).content,'html.parser')
+        review_container = page.find_all("div", attrs={'class': 'cmp-review-content-container'})
+        for x in review_container:
+            pro_container = x.find_all("div", attrs={'class': 'cmp-review-pros'})
+#             print(pro_container)
+
+            if (pro_container) != []:
+                for z in pro_container:
+                    pro = z.find("div", attrs={'class': 'cmp-review-pro-text'})
+                    if (pro) != None:
+                        yield pro.text
+                    else:
+                        yield ' '
+            else:
+                yield ' '
+
+def get_review_cons(urls):
+    
+    for url in urls:
+        page =  bs4.BeautifulSoup(requests.get(url).content,'html.parser')
+        review_container = page.find_all("div", attrs={'class': 'cmp-review-content-container'})
+        for x in review_container:
+            con_container = x.find_all("div", attrs={'class': 'cmp-review-cons'})
+#             print(con_container)
+
+            if (con_container) != []:
+                for z in con_container:
+                    con = z.find("div", attrs={'class': 'cmp-review-con-text'})
+                    if (con) != None:
+                        yield con.text
+                    else:
+                        yield ' '
+            else:
+                yield ' '
+            
+
+for rev_title in get_review_title(urls):
+    review_titles.extend(rev_title)
+    
+for job_title in get_job_title(urls):
+    job_titles.extend(job_title)
+    
+for job_loc in get_job_location(urls):
+    job_locations.extend(job_loc)
+    
+for rev_date in get_review_date(urls):
+    review_dates.extend(rev_date)
+
+for rev_desc in get_review_description(urls):
+    review_description.extend(rev_desc)
+
+for rev_pro in get_review_pros(urls):
+    pros.append(rev_pro)
+    
+for rev_con in get_review_cons(urls):
+    cons.append(rev_con)
+
+# print(pros)
+# print(cons)
+
+print(len(review_titles))
+print(len(job_titles))
+print(len(job_locations))
+print(len(review_dates))
+print(len(review_description))
+print(len(pros))
+print(len(cons))
+
+
+
+data = {"review title":review_titles, "job title":job_titles, "job location":job_locations, "date":review_dates,"description":review_description, "pros":pros, "cons":cons}
+
+df = pd.DataFrame(data)
+
+# print(df)
+
+df.to_csv('Anglo_American_review.csv')

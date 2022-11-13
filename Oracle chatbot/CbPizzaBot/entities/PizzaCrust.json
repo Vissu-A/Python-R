@@ -1,0 +1,27 @@
+{
+  "name" : "PizzaCrust",
+  "type" : "ENUMVALUES",
+  "enumValues" : [ {
+    "canonicalName" : "thick",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "thin",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "stuffed",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "pan",
+    "synonyms" : null
+  } ],
+  "namedEntityRuleParams" : [ ],
+  "multiValue" : false,
+  "fuzzyMatch" : false,
+  "promptForDisambiguation" : true,
+  "botPrompts" : [ {
+    "text" : "Please enter PizzaCrust",
+    "sequenceNr" : null
+  } ],
+  "validationRules" : [ ],
+  "compositeBagItems" : [ ]
+}

@@ -1,0 +1,18 @@
+{
+  "name" : "YesNo",
+  "type" : "ENUMVALUES",
+  "enumValues" : [ {
+    "canonicalName" : "Yes",
+    "synonyms" : null
+  }, {
+    "canonicalName" : "No",
+    "synonyms" : null
+  } ],
+  "namedEntityRuleParams" : [ ],
+  "multiValue" : false,
+  "fuzzyMatch" : false,
+  "promptForDisambiguation" : true,
+  "botPrompts" : [ ],
+  "validationRules" : [ ],
+  "compositeBagItems" : [ ]
+}

@@ -1,0 +1,21 @@
+{
+  "name" : "OrderPasta",
+  "type" : "NLPIntent",
+  "intentParameters" : [ ],
+  "exampleData" : [ {
+    "sentence" : "Can I get pasta",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Pasta please",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "I want pasta with pesto",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "I want pasta",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "What kind of spaghettis do you have",
+    "exampleEntities" : [ ]
+  } ]
+}

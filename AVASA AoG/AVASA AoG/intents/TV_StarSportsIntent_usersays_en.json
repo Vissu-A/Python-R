@@ -1,0 +1,35 @@
+[
+  {
+    "id": "c1fc72c1-5549-48bd-8ee8-7a9f8a55b22d",
+    "data": [
+      {
+        "text": "change to Star sports",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "5c3d9f9f-ead4-49dd-995d-b2dcbd67e41a",
+    "data": [
+      {
+        "text": "switch to ",
+        "userDefined": false
+      },
+      {
+        "text": "Star",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " Sports",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "name" : "CancelOrder",
+  "type" : "NLPIntent",
+  "intentParameters" : [ ],
+  "exampleData" : [ {
+    "sentence" : "Please cancel my wine order",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Don't need my wine anymore",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Can i cancel my order?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "I don't want my wine anymore",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Cancel my order",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "I'd like to cancel my order please",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Its been more than 2 weeks. Please cancel my order and issue a refund to my card.",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Please don't deliver my wine",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "How do I cancel my order?",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "I really don't want the wine anymore",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Cancel my wine please",
+    "exampleEntities" : [ ]
+  }, {
+    "sentence" : "Need to cancel my order",
+    "exampleEntities" : [ ]
+  } ]
+}

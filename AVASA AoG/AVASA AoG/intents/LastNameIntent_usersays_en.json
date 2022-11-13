@@ -1,0 +1,16 @@
+[
+  {
+    "id": "390da2fd-33eb-4c0f-ac62-e267a413064a",
+    "data": [
+      {
+        "text": "name",
+        "alias": "lastName",
+        "meta": "@LastNames",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]
