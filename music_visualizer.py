@@ -19,8 +19,8 @@ pygame.mixer.quit() # stops unwanted audio output on some computers
 DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT), RESIZABLE, vsync=1)
 pygame.display.set_caption('VU Meter')
 fontSmall = pygame.font.Font('freesansbold.ttf', 12)
-pa = pyaudio.PyAudio()
 
+pa = pyaudio.PyAudio()
 info = pa.get_default_input_device_info()
 print('Information: ',info)
 RATE = int(info['defaultSampleRate'])
